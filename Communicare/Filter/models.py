@@ -20,3 +20,6 @@ class DoctorProfile(models.Model):
     is_male=models.BooleanField(default=False)
     is_female=models.BooleanField(defaut=False)
     specialty=models.CharField(max_length=100)
+
+class PatientProfile(models.model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)

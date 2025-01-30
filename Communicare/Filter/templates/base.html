@@ -1,0 +1,18 @@
+{% load static %}<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Communicare{% endblock}</title>
+    </head>
+    <body>
+        <div>
+            <ol>
+                {% block breadcrumb %}
+                {% endblock %}
+            </ol>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
