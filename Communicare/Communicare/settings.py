@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'Communicare.wsgi.application'
 #this cant be the db that we use need to switch it
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.gis.db.backends.postgis',
+        'NAME': 'communicare_realbutnot',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': 5432
     }
 }
 

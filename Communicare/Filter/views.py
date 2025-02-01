@@ -2,13 +2,13 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from django.views.generic import CreateView
 from .models import User
-from .forms import DocSignUpForm
+from .forms import DoctorSignupForm,PatientSignupForm
 
 # Create your views here.
 
 class DocSignupView(CreateView):
     model=User
-    form_class=DocSignUpForm
+    form_class=DoctorSignupForm
     template_name='signupForm.html'
 
     def get_context_data(self, **kwargs):
