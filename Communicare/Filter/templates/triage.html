@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<h1>self explanatory</h1>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'patientSignup' %}">patient signup</a>
+<a href="{% url 'docSignup' %}">doctor signup</a>
+{% endblock %}

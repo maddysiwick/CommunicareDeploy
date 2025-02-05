@@ -20,5 +20,11 @@ from Filter import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup/',views.signupView,name='signup')
+    path('signup/',views.triage,name='signup'),
+    path('signup/doctor/',views.DocSignupView.as_view(),name='docSignup'),
+    path('signup/patient/',views.PatientSignupView.as_view(),name='patientSignup'),
+    path('home/',views.home,name='home'),
+    path('search/',views.searchCriteria.as_view(),name='searchcriteria'),
+    path('search/results/<int:distance>/<specialty>/<female>/<male>/',views.searchResults.as_view(),name='searchresults'),
+    path('search/results/<int:pk>/',views.docInfo,name='docinfo')
 ]

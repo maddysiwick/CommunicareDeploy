@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<h1>signup</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+{% endblock %}

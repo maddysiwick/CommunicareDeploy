@@ -9,8 +9,8 @@ class Language(models.Model):
 
     def __str__(self):
         return self.lang
-    
-    
+
+ 
 class User(AbstractUser):
     is_doctor=models.BooleanField(default=False)
     is_patient=models.BooleanField(default=False)
@@ -23,10 +23,7 @@ class User(AbstractUser):
         return self.name
 
 class DoctorProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+    user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='profile')
     is_male=models.BooleanField(default=False)
     is_female=models.BooleanField(default=False)
     specialty=models.CharField(max_length=100)
-
-class PatientProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
