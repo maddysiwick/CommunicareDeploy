@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block content %}
-<p1>{{doctor.profile__specialty}}</p1>
-<p2>{{doctor.languages}}</p2>
+<p1>{{doctor.docprofile.specialty}}</p1>
+<br>
+{% for language in doctor.languages.all %}
+<p>{{language.lang}}</p>
+<br>
+{% endfor %}
+{% if me.is_patient %}
+<form method="post">
+    {% csrf_token %}
+<button type="submit">{{bookmark_text}}</button>
+</form>
+{% endif %}
 {% endblock %}

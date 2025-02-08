@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<h1>login</h1>
+{% if error %}
+<p>{{error}}</p>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">login</button>
+</form>
+{% endblock %}

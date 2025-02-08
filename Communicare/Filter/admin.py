@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Language,DoctorProfile,User
+from .models import Language,DoctorProfile,User,PatientProfile
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.contrib.auth.admin import UserAdmin
 
@@ -27,6 +27,7 @@ class UserAdmin(UserAdmin):
 #admin.site.register(User,UserAdmin)
 admin.site.register(Language)
 admin.site.register(DoctorProfile)
+admin.site.register(PatientProfile)
 
 class UserAdmin(OSMGeoAdmin):
     list_display = ('name', 'location')

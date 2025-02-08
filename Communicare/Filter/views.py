@@ -1,8 +1,8 @@
-from django.contrib.auth import login
+from django.contrib.auth import login,authenticate
 from django.shortcuts import redirect,render
 from django.views.generic import CreateView
 from .models import User,DoctorProfile
-from .forms import DoctorSignupForm,PatientSignupForm,SearchCrieteriaForm
+from .forms import DoctorSignupForm,PatientSignupForm,SearchCrieteriaForm,loginForm
 from django.contrib.gis.measure import Distance
 from django.contrib.gis.geos import Point
 from django.db.models import Q
@@ -73,20 +73,54 @@ class searchResults(View):
         languages=me.languages.all()
         accessibility=me.acessibility
         doctors=[]
-        query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(profile__specialty=specialty)
+        query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(docprofile__specialty=specialty)
         print(me.location)
-        '''if accessibility==True:
+        if accessibility==True:
             query&=Q(accessibility=True)
         if male==True:
             query&=Q(is_male=True)
         if female==True:
-            query&=Q(is_female=True)'''
+            query&=Q(is_female=True)
         for language in languages:
             doctors+=language.user_set.filter(query)
         print(len(doctors))
+        #is this ass? maybe
+        doctors=list(set(doctors))
         return render(request,'searchResults.html',{'doctors':doctors})
 def docInfo(request,pk):
     doctor=User.objects.get(pk=pk)
-    name=doctor.name
-    langs=[language.lang for language in doctor.languages.all()]
-    return render(request,'docInfo.html',{'doctor':doctor})
+    user=request.user
+    #this code might be shit go back over later
+    if doctor in user.patientprofile.providers.all():
+        bookmark_status=True
+        bookmark_text='unbookmark'
+    else:
+        bookmark_status=False
+        bookmark_text='bookmark'
+    if request.method=='POST':
+        print('got the request')
+        if bookmark_status:
+            print('recognizes bookmarked as true')
+            user.patientprofile__providers.remove(doctor)
+            user.save()
+            bookmark_text='bookmark'
+        else:
+            print('recognizes bookmarked as false')
+            user.patientprofile.providers.add(doctor)
+            user.save()
+            bookmark_text='unbookmark'
+    return render(request,'docInfo.html',{'doctor':doctor,'bookmark_text':bookmark_text})
+
+def loginView(request):
+    form=loginForm
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        user=authenticate(request,username=username, password=password)
+        if user is not None:
+            login(request,user)
+            return redirect('home')
+        else:
+            return render(request,'login.html',{'form':form,'error':'user not valid'})
+    else:
+        return render(request,'login.html',{'form':form})

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Filter import views
+from django.contrib.auth import views as authViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,7 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('search/',views.searchCriteria.as_view(),name='searchcriteria'),
     path('search/results/<int:distance>/<specialty>/<female>/<male>/',views.searchResults.as_view(),name='searchresults'),
-    path('search/results/<int:pk>/',views.docInfo,name='docinfo')
+    path('search/results/<int:pk>/',views.docInfo,name='docinfo'),
+    path('logout/',authViews.LogoutView.as_view(),name='logout'),
+    path('login',views.loginView,name='login')
 ]

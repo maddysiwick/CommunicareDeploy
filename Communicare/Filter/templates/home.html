@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-<h1>welcome to communicare{{user.name}}!!</h1>
+<!--should check if the me thing is even necessary cause user wokrs fine on this page-->
+<h1>welcome to communicare {{me.name}}!!</h1>
 {% endblock %}
 
 {% block content %}
 <a href="{% url 'signup' %}">register</a>
 {% if user.is_patient %}
 <a href="{% url 'searchcriteria' %}">search for a doctor</a>
+<br>
+<h2>booksmarks</h2>
+{% for doctor in user.patientprofile.providers.all %}
+<a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
+{% endfor %}
 {% endif %}
 {% endblock %}

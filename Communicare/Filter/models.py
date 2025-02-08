@@ -23,7 +23,11 @@ class User(AbstractUser):
         return self.name
 
 class DoctorProfile(models.Model):
-    user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True,related_name='profile')
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='docprofile',null=True)
     is_male=models.BooleanField(default=False)
     is_female=models.BooleanField(default=False)
     specialty=models.CharField(max_length=100)
+
+class PatientProfile(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='patientprofile',null=True)
+    providers=models.ManyToManyField(User,related_name='patients',blank=True)

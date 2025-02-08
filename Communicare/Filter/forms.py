@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.contrib.gis.geos import Point
 
-from .models import DoctorProfile,User,Language
+from .models import DoctorProfile,User,Language,PatientProfile
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
@@ -26,6 +26,10 @@ class PatientSignupForm(UserCreationForm):
         long=self.cleaned_data.get('long')
         user.location=Point(long,lat)
         user.accessibility=self.cleaned_data.get('accessibility')
+        user.save()
+        pat=PatientProfile.objects.create()
+        pat.user=user
+        pat.save()
         user.save()
         return user
     
@@ -60,8 +64,8 @@ class DoctorSignupForm(UserCreationForm):
         doc.is_female=self.cleaned_data.get('female')
         doc.is_male=self.cleaned_data.get('male')
         doc.specialty=self.cleaned_data.get('specialty')
+        doc.user=user
         doc.save()
-        user.profile=doc
         user.save()
         return user
 
@@ -71,3 +75,7 @@ class SearchCrieteriaForm(forms.Form):
     specialty=forms.CharField(help_text='what kimd of professional are you looking for')
     male=forms.BooleanField(help_text='i need a male doctor',required=False)
     female=forms.BooleanField(help_text='i need a female docgtor',required=False)
+
+class loginForm(forms.Form):
+    username=forms.CharField(max_length=100)
+    password=forms.CharField(max_length=100)
