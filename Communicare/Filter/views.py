@@ -90,3 +90,12 @@ def docInfo(request,pk):
     name=doctor.name
     langs=[language.lang for language in doctor.languages.all()]
     return render(request,'docInfo.html',{'doctor':doctor})
+
+def whatkindinfo(request):
+    return render(request, 'whatkindinfo.html')
+
+def qcinfo(request):
+    return render(request, 'qcinfo.html')
+
+def booking(request):
+    return render(request, 'booking.html')

@@ -43,16 +43,62 @@
             margin: 10px auto;
         }
 
+        .sidedivide {
+            border-right: 2px solid #710E09;
+            height: 100%;
+            width: 2px;
+            margin: 0 10px;
+        }
         .langbutton {
             width: 6vw;
             height: auto;
             margin-right: 8vw;
             }
-        
+
         .langbutton:hover {
             transform: scale(1.1);
         }
 
+        .info {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .info:hover {
+            transform: scale(1.1);
+        }
+
+
+
+        .homebutton {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .homebutton:hover {
+            transform: scale(1.1);
+        }
+        .profile {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .profile:hover {
+            transform: scale(1.1);
+        }
+
+        .signout {
+            width: 80px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .signout:hover {
+            transform: scale(1.1);
+        }
         .dropdown {
             display: none;
             position: absolute;
@@ -63,6 +109,9 @@
             width: 120px;
             max-height: 200px;
             overflow-y: auto;
+            z-index: 9999;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.75rem;
         }
 
         .nav-bar {
@@ -147,10 +196,35 @@
          font-size: 1rem;
          color: #F3EAE5;
          text-align: center;
-         border-radius: 10px;
-         background-color: #FFF9F6;
+        
+      }
+      .label-red {
+        color: #710E09;
       }
       
+        .form-group {
+            text-align: left; /* Align all form elements to the left */
+        }
+
+        /* Optional: Align the label to the left */
+        .form-field label {
+            text-align: left;
+            display: block; /* Ensure labels take full width */
+        }
+
+        /* Align the input fields */
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            text-align: left;
+        }
+
+        /* Ensure the submit button is also aligned to the left */
+        form button {
+            text-align: left;
+            display: block; /* Make sure it doesn't stretch across */
+            margin-left: 0; /* Optional: remove any default margin */
+        }
     </style>
     
 </head>
@@ -217,12 +291,12 @@
                 setTimeout(function() {
                     var dropdown = document.getElementById('dropdownMenu');
                     dropdown.style.display = "none";
-                }, 1000); // 1 second delay before closing dropdown
+                }, 100); // 1 second delay before closing dropdown
 
                 // Wait for 1 second before removing the red color from the selected language
                 setTimeout(function() {
                     item.classList.remove('selected');
-                }, 1000); // 1 second delay before resetting color
+                }, 100); // 1 second delay before resetting color
             });
         });
 

@@ -28,7 +28,11 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('search/',views.searchCriteria.as_view(),name='searchcriteria'),
     path('search/results/<int:distance>/<specialty>/<female>/<male>/',views.searchResults.as_view(),name='searchresults'),
-    path('search/results/<int:pk>/',views.docInfo,name='docinfo')
+    path('search/results/<int:pk>/',views.docInfo,name='docinfo'),
+    path('whatkindinfo/',views.whatkindinfo,name='whatkindinfo'),
+    path('qcinfo/',views.qcinfo,name='qcinfo'),
+    path('booking/',views.booking,name='booking')
+
 ]
 
 if settings.DEBUG:

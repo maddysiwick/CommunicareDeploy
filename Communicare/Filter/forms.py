@@ -7,6 +7,7 @@ from .models import DoctorProfile,User,Language
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
+    
     name=forms.CharField(max_length=100,help_text='what is your name')
     accessibility=forms.BooleanField(help_text='do you need the office to be acessible',required=False)
     #NEED TO FIX THIS IN THE FUTUR CANT BE ASKING USERS FOR COORDINATES
@@ -15,6 +16,18 @@ class PatientSignupForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model=User
+        fields = ['languages', 'name', 'accessibility', 'lat', 'long']
+
+    widgets = {
+        'name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'This is your name'}),
+        'lat': forms.TextInput(attrs={'class':'form-control'}),
+        'long': forms.TextInput(attrs={'class':'form-control'}),
+    }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.label_class = 'label-red'
 
     @transaction.atomic
     def save(self):
@@ -29,6 +42,9 @@ class PatientSignupForm(UserCreationForm):
         user.save()
         return user
     
+    
+    
+
 
 class DoctorSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
