@@ -22,7 +22,7 @@
         <ul class="nav-bar">
             <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2rem, 2vw, 1.5rem); margin: 0; margin-bottom: 40px;"> Booking an appointment</h1>
             
-            <button id="appointmentbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 3vw; margin-top: 3vw;">
+            <button id="appointmentbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 1vw; margin-top: 1vw;">
                 <span id="arrow1" style="position: absolute; right: 20px;">&gt;</span> <!-- Arrow on the left -->
                 How to book an appointment
             </button>
@@ -30,25 +30,52 @@
             <div id= "appointmenttext" style= "display: none; color: #710E09; width: 90%; box-sizing: border-box; text-align: left; ">
                 <p style="margin-bottom: 15px;"> When booking an appointment with a doctor over the phone, we recommend you use the phone number provided on our doctor information page. Once you dial, you can make an appointment by speaking with the receptionist of the office.</p>
                 <p>  If you choose to email the office, provide your name, your phone number, the doctor you are trying to get an appointment with and the dates you would like to come into the office. </p>
-                  
+                <a href="mailto:doctor@example.com?subject=Booking an appointment&body=Hello, I would like to book an appointment with Doctor______.My name is ____________ .%0A%0A(Optional) This would be my first appointment with the doctor.%0A%0A(Optional) The reason I would like an appointment is_________. %0A%0A%0A%0AThank you for letting me know the nearest availabilities.%0A%0A(Your name)%0A%0A(Your name)%0A%0A(Your phone number)">
+                    <img id="email" src="{% static 'email.jpg'%}"class ="email" alt="email" style = "text-decoration: none;">
+                </a>
             </div>
             
-            <button id="callbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 3vw;margin-top: 3vw;">
+            <button id="callbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 1vw;margin-top: 1vw;">
                 <span id="arrow2" style="position: absolute; right: 20px;">&gt;</span> <!-- Arrow on the left -->
                 Calling a doctor's office
             </button>
 
-            <div id= "calltext" style= "display: none; color: #710E09; ">
-                <p> here's how to call a docs office blablablabla ok so blablablabvlabablablabla</p>
+            <div id= "calltext" style= "display: none; color: #710E09;width: 85%; box-sizing: border-box; text-align: left; ">
+                <p style="margin-bottom:15px;"> Start by asking the receptionist if they speak the language you are most comfortable with. The doctor speaks your language, but the receptionist might not.</p>
+                <div class="box" style="padding: 20px; font-family:'Nunito', sans-serif; font-size:1rem; color: #710E09;background-color: #F3EAE5; border-radius:15px; text-align:left; font-style: italic;"> 
+                    <p style="margin-bottom:15px;">Hi, do you speak _______? (your preferred language) </p>
+                    <p style="margin-bottom:15px;">Or</p>
+                    <p style="margin-bottom:15px;">Bonjour, parlez-vous le______? (your preferred language)</p>
+                </div>      
+                <p style="margin-bottom:15px;">If they don’t speak your language, here is what you should say: </p>
+                <div class="box" style="padding: 20px; font-family:'Nunito', sans-serif; font-size:1rem; color: #710E09;background-color: #F3EAE5; border-radius:15px; text-align:left; font-style: italic;"> 
+                    <p style="margin-bottom:15px;">English is not my first language, so I would appreciate it if you spoke slowly and clearly please.  </p>
+                    <p style="margin-bottom:15px;">Or</p>
+                    <p style="margin-bottom:15px;">Le français n’est pas ma langue maternelle, donc j’apprécierais que vous parliez lentement et clairement s’il vous plaît.</p>
+                </div>   
+                <p style="margin-bottom:15px;">Introduce yourself and state which doctor you would like an appointment with.</p>
+                <div class="box" style="padding: 20px; font-family:'Nunito', sans-serif; font-size:1rem; color: #710E09;background-color: #F3EAE5; border-radius:15px; text-align:left; font-style: italic;"> 
+                    <p style="margin-bottom:15px;">My name is _____(Your full name) and I would like to book an appointment with Doctor______. (The doctor you wish to book an appointment with)</p>
+                    <p style="margin-bottom:15px;">Or</p>
+                    <p style="margin-bottom:15px;">Je m’appelle ____ (Your full name) et j’aimerai prendre rendez-vous avec le Docteur_____. (The doctor you wish you wish to book an appointment with)</p>
+                </div>
+                <p style="margin-bottom:15px;">The receptionist will guide you through the rest of the process. If they ask you questions relating to the reasons you wish for an appointment that you do not wish to answer, here is what you should say:</p>
+                <div class="box" style="padding: 20px; font-family:'Nunito', sans-serif; font-size:1rem; color: #710E09;background-color: #F3EAE5; border-radius:15px; text-align:left; font-style: italic;"> 
+                    <p style="margin-bottom:15px;">I would prefer to discuss that with a doctor.</p>
+                    <p style="margin-bottom:15px;">Or</p>
+                    <p style="margin-bottom:15px;">Je préfère en parler avec le docteur.</p>
+                </div>
             </div>
             
-            <button id="refbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 3vw;margin-top: 3vw;">
+            <button id="refbutton" style="font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%; width: 100%; display: flex; justify-content: center; align-items: center; position: relative; margin-bottom: 1vw;margin-top: 1vw;">
                 <span id="arrow3" style="position: absolute; right: 20px;">&gt;</span> <!-- Arrow on the left -->
                 Referrals
             </button>
 
-            <div id= "reftext" style= "display: none; color: #710E09; ">
-                <p> so the way referrals work. blablablabvlabablablabla</p>
+            <div id= "reftext" style= "display: none; color: #710E09; width: 90%; box-sizing: border-box; text-align: left; ">
+                <p style="margin-bottom:15px;"> When you make an appointment with a family doctor, they will provide you with referrals to a specialist. Referrals are small pieces of paper that provide the specialist’s phone number, the reason you need to go to that specialist and the doctor’s signature. </p>
+                <p style="margin-bottom:15px;">Coming soon: list of specialists that require referral and list of specialists that don’t require referrals
+                </p>
             </div>
             
             
