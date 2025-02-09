@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Filter import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +30,6 @@ urlpatterns = [
     path('search/results/<int:distance>/<specialty>/<female>/<male>/',views.searchResults.as_view(),name='searchresults'),
     path('search/results/<int:pk>/',views.docInfo,name='docinfo')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

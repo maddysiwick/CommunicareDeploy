@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-from django.contrib.gis.geos import Point
+#from django.contrib.gis.geos import Point
 
 from .models import DoctorProfile,User,Language
 
@@ -24,7 +24,7 @@ class PatientSignupForm(UserCreationForm):
         user.languages.add(*self.cleaned_data.get('languages'))
         lat=self.cleaned_data.get('lat')
         long=self.cleaned_data.get('long')
-        user.location=Point(long,lat)
+        #user.location=Point(long,lat)
         user.accessibility=self.cleaned_data.get('accessibility')
         user.save()
         return user
@@ -54,7 +54,7 @@ class DoctorSignupForm(UserCreationForm):
         user.languages.add(*self.cleaned_data.get('languages'))
         lat=self.cleaned_data.get('lat')
         long=self.cleaned_data.get('long')
-        user.location=Point(long,lat)
+        #user.location=Point(long,lat)
         user.accessibility=self.cleaned_data.get('accessibility')
         doc=DoctorProfile.objects.create()
         doc.is_female=self.cleaned_data.get('female')

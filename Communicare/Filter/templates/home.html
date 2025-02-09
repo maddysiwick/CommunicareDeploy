@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
+
 {% block breadcrumb %}
 <h1>welcome to communicare{{user.name}}!!</h1>
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'signup' %}">register</a>
+<a href="{% url 'signup' %}">
+    <button> Next </button>
+</a>
 {% if user.is_patient %}
 <a href="{% url 'searchcriteria' %}">search for a doctor</a>
 {% endif %}
