@@ -8,10 +8,10 @@ from django.contrib.gis.geos import Point
 from django.db.models import Q
 from django.views.generic.edit import FormView
 from django.views import View
+
 # Create your views here.
 #these views might be ass go back over them later
 
-#idk if i should maybe be storing this somewhere else
 
 class DocSignupView(CreateView):
     model=User

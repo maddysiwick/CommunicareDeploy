@@ -17,6 +17,7 @@ class UserAdmin(UserAdmin):
                     'name',
                     'acessibility',
                     'location',
+                    'address',
                     'languages',
                 ),
             },

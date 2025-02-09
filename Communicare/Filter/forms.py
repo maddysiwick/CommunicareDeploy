@@ -2,17 +2,23 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.contrib.gis.geos import Point
+from geopy import Nominatim
 
 from .models import DoctorProfile,User,Language,PatientProfile
+
+def getCoords(addressBad):
+    geolocator=Nominatim(user_agent='Communicare')
+    location=geolocator.geocode(addressBad)
+    address=location.address
+    point=Point(location.longitude,location.latitude)
+    return [address,point]
+
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
     name=forms.CharField(max_length=100,help_text='what is your name')
     accessibility=forms.BooleanField(help_text='do you need the office to be acessible',required=False)
-    #NEED TO FIX THIS IN THE FUTUR CANT BE ASKING USERS FOR COORDINATES
-    lat=forms.FloatField(help_text='please input your lat coordinate')
-    long=forms.FloatField(help_text='please input your long coordinate')
-
+    address=forms.CharField(max_length=500)
     class Meta(UserCreationForm.Meta):
         model=User
 
@@ -22,9 +28,9 @@ class PatientSignupForm(UserCreationForm):
         user.is_patient=True
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
-        lat=self.cleaned_data.get('lat')
-        long=self.cleaned_data.get('long')
-        user.location=Point(long,lat)
+        spacial=getCoords(self.cleaned_data.get('address'))
+        user.address=spacial[0]
+        user.location=spacial[1]
         user.accessibility=self.cleaned_data.get('accessibility')
         user.save()
         pat=PatientProfile.objects.create()
@@ -38,9 +44,7 @@ class DoctorSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
     name=forms.CharField(max_length=100,help_text='what is your name')
     accessibility=forms.BooleanField(help_text='is your office accessible',required=False)
-    #NEED TO FIX THIS IN THE FUTUR CANT BE ASKING USERS FOR COORDINATES
-    lat=forms.FloatField(help_text='please input your lat coordinate')
-    long=forms.FloatField(help_text='please input your long coordinate')
+    address=forms.CharField(max_length=500)
     male=forms.BooleanField(help_text='m',required=False)
     female=forms.BooleanField(help_text='f',required=False)
     specialty=forms.CharField(help_text='what is your field of specialty')
@@ -56,9 +60,10 @@ class DoctorSignupForm(UserCreationForm):
         user.acessibility=self.cleaned_data.get('accessibility')
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
-        lat=self.cleaned_data.get('lat')
-        long=self.cleaned_data.get('long')
-        user.location=Point(long,lat)
+        spacial=getCoords(self.cleaned_data.get('address'))
+        print(spacial[0])
+        user.address=spacial[0]
+        user.location=spacial[1]
         user.accessibility=self.cleaned_data.get('accessibility')
         doc=DoctorProfile.objects.create()
         doc.is_female=self.cleaned_data.get('female')

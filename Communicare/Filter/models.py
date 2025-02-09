@@ -16,6 +16,7 @@ class User(AbstractUser):
     is_patient=models.BooleanField(default=False)
     name=models.CharField(max_length=100)
     acessibility=models.BooleanField(default=False)
+    address=models.CharField(max_length=500,null=True)
     location=models.PointField(default=Point(0,0))
     languages=models.ManyToManyField(Language)
 
