@@ -6,10 +6,14 @@ from django.db import transaction
 from .models import DoctorProfile,User,Language
 
 class PatientSignupForm(UserCreationForm):
-    languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
+    languages=forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        queryset=Language.objects.all(),
+        required=True) 
+        
     
-    name=forms.CharField(max_length=100,help_text='what is your name')
-    accessibility=forms.BooleanField(help_text='do you need the office to be acessible',required=False)
+    name=forms.CharField(max_length=100)#help_text='what is your name')
+    accessibility=forms.BooleanField(help_text='I am physically handicapped',required=False)
     #NEED TO FIX THIS IN THE FUTUR CANT BE ASKING USERS FOR COORDINATES
     lat=forms.FloatField(help_text='please input your lat coordinate')
     long=forms.FloatField(help_text='please input your long coordinate')
@@ -48,13 +52,14 @@ class PatientSignupForm(UserCreationForm):
 
 class DoctorSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
-    name=forms.CharField(max_length=100,help_text='what is your name')
-    accessibility=forms.BooleanField(help_text='is your office accessible',required=False)
+    name=forms.CharField(max_length=100)
+    accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     #NEED TO FIX THIS IN THE FUTUR CANT BE ASKING USERS FOR COORDINATES
     lat=forms.FloatField(help_text='please input your lat coordinate')
     long=forms.FloatField(help_text='please input your long coordinate')
     male=forms.BooleanField(help_text='m',required=False)
     female=forms.BooleanField(help_text='f',required=False)
+    
     specialty=forms.CharField(help_text='what is your field of specialty')
 
     class Meta(UserCreationForm.Meta):
@@ -73,8 +78,10 @@ class DoctorSignupForm(UserCreationForm):
         #user.location=Point(long,lat)
         user.accessibility=self.cleaned_data.get('accessibility')
         doc=DoctorProfile.objects.create()
+
         doc.is_female=self.cleaned_data.get('female')
         doc.is_male=self.cleaned_data.get('male')
+    
         doc.specialty=self.cleaned_data.get('specialty')
         doc.save()
         user.profile=doc
@@ -87,3 +94,4 @@ class SearchCrieteriaForm(forms.Form):
     specialty=forms.CharField(help_text='what kimd of professional are you looking for')
     male=forms.BooleanField(help_text='i need a male doctor',required=False)
     female=forms.BooleanField(help_text='i need a female docgtor',required=False)
+   
