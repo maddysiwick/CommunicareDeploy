@@ -44,7 +44,6 @@ class Migration(migrations.Migration):
                 ('is_patient', models.BooleanField(default=False)),
                 ('name', models.CharField(max_length=100)),
                 ('acessibility', models.BooleanField(default=False)),
-                ('location', django.contrib.gis.db.models.fields.PointField(default=django.contrib.gis.geos.point.Point(0, 0), srid=4326)),
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('languages', models.ManyToManyField(to='Filter.language')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),

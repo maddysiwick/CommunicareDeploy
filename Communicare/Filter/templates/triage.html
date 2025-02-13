@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-<h1>self explanatory</h1>
+<h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(5px, 7vw, 40px); margin: 0;">Welcome to CommuniCare</h1>
 {% endblock %}
 
 {% block content %}
-<a href="{% url 'patientSignup' %}">patient signup</a>
-<a href="{% url 'docSignup' %}">doctor signup</a>
+<div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: fixed; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: center;">
+    <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2rem, 2vw, 1.5rem); margin: 0; margin-bottom: 40px;">Sign In</h1>
+
+    <a href="{% url 'patientSignup' %}">
+        <button style= "font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%;  width: 100%; display: inline-flex; justify-content: center; align-items: center; margin-bottom: 3vw">  I am seeking Care</button>
+    </a>
+    <a href="{% url 'docSignup' %}">
+        <button style= "font-size: clamp(1rem, 2vw, 1.5rem); min-width: 40vw; max-width: 90%;  width: 100%; display: inline-flex; justify-content: center; align-items: center;">  I am providing Care</button>
+    </a>
+
+</div>
+
 {% endblock %}

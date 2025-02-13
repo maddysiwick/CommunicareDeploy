@@ -1,4 +1,4 @@
-from django.contrib.gis.db import models
+from django.db import models
 from django.contrib.gis.geos import Point
 from django.contrib.auth.models import AbstractUser
 
@@ -32,3 +32,9 @@ class DoctorProfile(models.Model):
 class PatientProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='patientprofile',null=True)
     providers=models.ManyToManyField(User,related_name='patients',blank=True)
+
+class Image(models.Model):
+    name = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='images')
+    def __str(self):
+        return self.name

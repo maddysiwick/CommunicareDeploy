@@ -15,12 +15,28 @@ def getCoords(addressBad):
 
 
 class PatientSignupForm(UserCreationForm):
-    languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
-    name=forms.CharField(max_length=100,help_text='what is your name')
-    accessibility=forms.BooleanField(help_text='do you need the office to be acessible',required=False)
+    languages=forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        queryset=Language.objects.all(),
+        required=True) 
+        
+    
+    name=forms.CharField(max_length=100)#help_text='what is your name')
+    accessibility=forms.BooleanField(help_text='I am physically handicapped',required=False)
     address=forms.CharField(max_length=500)
     class Meta(UserCreationForm.Meta):
         model=User
+        fields = ['languages', 'name', 'accessibility', 'address']
+
+    widgets = {
+        'name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'This is your name'}),
+        'address': forms.TextInput(attrs={'class':'form-control'}),
+    }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.label_class = 'label-red'
 
     @transaction.atomic
     def save(self):
@@ -39,14 +55,18 @@ class PatientSignupForm(UserCreationForm):
         user.save()
         return user
     
+    
+    
+
 
 class DoctorSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
-    name=forms.CharField(max_length=100,help_text='what is your name')
-    accessibility=forms.BooleanField(help_text='is your office accessible',required=False)
+    name=forms.CharField(max_length=100)
+    accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     address=forms.CharField(max_length=500)
     male=forms.BooleanField(help_text='m',required=False)
     female=forms.BooleanField(help_text='f',required=False)
+    
     specialty=forms.CharField(help_text='what is your field of specialty')
 
     class Meta(UserCreationForm.Meta):
@@ -66,8 +86,10 @@ class DoctorSignupForm(UserCreationForm):
         user.location=spacial[1]
         user.accessibility=self.cleaned_data.get('accessibility')
         doc=DoctorProfile.objects.create()
+
         doc.is_female=self.cleaned_data.get('female')
         doc.is_male=self.cleaned_data.get('male')
+    
         doc.specialty=self.cleaned_data.get('specialty')
         doc.user=user
         doc.save()

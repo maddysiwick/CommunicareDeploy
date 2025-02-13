@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block content %}
+<div class = "container">
+<div class="box" style="top: clamp(180px, 30vw, 300px);left:0; bottom: 0; padding: 20px;width: 100px; position: absolute; border-right: 2px solid #710E09; background-color: #F3EAE5; ">
+    <a href="{% url 'whatkindinfo' %}">
+        <img id="info" src="{% static 'info.jpg'%}"class ="info" alt="info">
+    </a>
+    <img id="profile" src="{% static 'profile.jpg'%}"class ="profile" alt="profile">
+    <a href="{% url 'home' %}">
+        <img id="homebutton" src="{% static 'homebutton.jpg'%}"class ="homebutton" alt="homebutton">
+    </a>
+    <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
+</div>
+
+<div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;font-size: 1rem;color: #F3EAE5;text-align: center;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(150px, 25vw, 250px); position: absolute;">
+    <nav>
+        <ul class="nav-bar">
+            <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2rem, 2vw, 1.5rem); margin: 0; margin-bottom: 40px;">Quebec's healthcare system</h1>
+
+   
+        </ul>
+   </nav>
+ </div>
+
+{% if user.is_patient %}
+<a href="{% url 'searchcriteria' %}">search for a doctor</a>
+{% endif %}
+
+{% endblock %}

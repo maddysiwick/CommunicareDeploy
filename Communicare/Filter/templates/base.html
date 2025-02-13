@@ -1,24 +1,411 @@
-{% load static %}<!DOCTYPE html>
+<!DOCTYPE html>
+{% load static %}
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Communicare</title>
-    </head>
-    <body>
-        <h1>Communicare</h1>
-        {% if me %}
-        <a href="{% url 'logout' %}">logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">login</a>
-        {% endif %}
-        <div>
-            <ol>
-                {% block breadcrumb %}
-                {% endblock %}
-            </ol>
-            {% block content %}
-            {% endblock %}
+<html lang = "en">
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewpoint" content="width=device-width, initial-scale=1.0">
+    <title>CommuniCare</title>
+    <link rel ="stylesheet" href="{% static '../css/bootstrap.min.css' %}">
+    <link href = "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link href = "https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel ="stylesheet">
+    <style>
+        
+        input, textarea, select {
+            border: 1px solid #710E09; 
+            color: #710E09;
+            margin-bottom: 30px;
+            
+        }
+
+        .checkbox-inline {
+            margin-right: 0;
+            margin-left: 0 ;
+            padding: 0 ;
+            margin-top: 0;
+        }
+
+        .checkbox-inline input[type="checkbox"] {
+            margin-right: 0 
+}
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 0 4px #710E09;
+            outline: #710E09;
+         }
+
+        /* Ensure the multi-select dropdown is wide enough */
+        /*select[multiple] {
+            width: 100%; 
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            background-color: #F3EAE5; 
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #710E09;
+        }
+            */
+        .languages-dropdown {
+            width: 70%;
+            height: 150px;
+            padding: 10px;
+            background-color: #F3EAE5;
+            color: #710E09;
+            border-radius: 5px;
+            font-size: 1rem;
+            overflow-y: auto;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: none;
+        }
+
+        .languages-dropdown option {
+            padding: 10px;
+            background-color: #F3EAE5;
+            color: #710E09;
+            font-size: 1rem;
+        }
+        select:focus, .languages-dropdown:focus {
+            box-shadow: none;
+            outline: none;
+}
+        .languages-dropdown option:hover {
+            background-color: #FFF9F6;
+        }
+        languages-dropdown option.selected {
+            background-color: #710E09;
+            color: #FFF9F6;
+        }
+
+        /* Adjust the height of the dropdown */
+        select[multiple] option {
+            padding: 10px; /* Space for each option */
+            font-size: 1rem; /* Font size for options */
+        }
+
+        .logo {
+            width: 9vw;
+            height: auto;
+            margin-left: 2vw;
+            }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F3EAE5;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #F3EAE5;
+            justify-content: space-between;
+            
+        }
+
+        .title-logo-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .red-line {
+            border-bottom: 2px solid #710E09;
+            width: 80%;
+            height: 2px;
+            margin: 10px auto;
+        }
+
+        .sidedivide {
+            border-right: 2px solid #710E09;
+            height: 100%;
+            width: 2px;
+            margin: 0 10px;
+        }
+        .langbutton {
+            width: 6vw;
+            height: auto;
+            margin-right: 8vw;
+            }
+
+        .langbutton:hover {
+            transform: scale(1.1);
+        }
+
+        .info {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .info:hover {
+            transform: scale(1.1);
+        }
+
+
+
+        .homebutton {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .homebutton:hover {
+            transform: scale(1.1);
+        }
+        .profile {
+            width: 60px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .profile:hover {
+            transform: scale(1.1);
+        }
+
+        .signout {
+            width: 80px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+        }
+        .signout:hover {
+            transform: scale(1.1);
+        }
+
+        .email {
+            width: 50px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+            border-radius: 5px;
+        }
+        .email:hover {
+            transform: scale(1.1);
+        }
+
+        .adddoc {
+            width: 110px;
+            height: auto;
+            margin-left: 20px;
+            margin-bottom: 35px;
+            border-radius: 5px;
+        }
+        .adddoc:hover {
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: #FFF9F6;
+            border-radius: 5px;
+            width: 120px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 9999;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.75rem;
+        }
+
+        .nav-bar {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction:column;
+            align-items: center;
+        }
+
+        .nav-bar li {
+            padding: 10px;
+            background-color: #FFF9F6;
+            margin: 5px 0;
+            color: #710E09;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 10px;
+        }
+
+        .nav-bar li a {
+            text-decoration: none;
+            color: #710E09;
+            width: 100%;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .nav-bar li:hover {
+            background-color: #F3EAE5;
+            cursor: pointer;
+        }
+
+        .nav-bar li:not(.selected):hover {
+            background-color: #F3EAE5;
+        }
+
+        .nav-bar li.selected {
+            background-color: #710E09;
+            max-width: 90%;
+        }
+
+        .nav-bar li.selected a {
+            background-color: #710E09;
+            color: #FFF9F6; /* Maintain dark red background when hovered */
+        }
+
+        .box::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .box::-webkit-scrollbar-thumb:hover {
+            background-color: #9C2F2F;
+            border-radius: 10px;
+        }
+
+        .selected-language {
+            color: #fff9f6;
+            background-color: #710E09;
+        }
+        button {
+         background-color: #710E09;
+         color: #FFF9F6;
+         font-family: 'Nunito', sans-serif;
+         padding: 10px 30px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         
+      }
+      button:hover{
+         background-color: #9C2F2F;
+      }
+
+      .box {
+         padding: 20px;
+         font-family: 'Nunito', sans-serif;
+         font-size: 1rem;
+         color: #F3EAE5;
+         text-align: center;
+        
+      }
+      .label-red {
+        color: #710E09;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      
+        .form-group {
+            text-align: left; /* Align all form elements to the left */
+        }
+
+        /* Optional: Align the label to the left */
+        .form-field label {
+            text-align: left;
+            display: block; /* Ensure labels take full width */
+        }
+
+        /* Align the input fields */
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            text-align: left;
+        }
+
+        /* Ensure the submit button is also aligned to the left */
+        form button {
+            text-align: left;
+            display: block; /* Make sure it doesn't stretch across */
+            margin-left: 0; /* Optional: remove any default margin */
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class = "header-container">
+        <div class= "title-logo-group">
+            <h1 style="font-family: Oswald, sans-serif; color: #710E09; font-size: 7vw; margin: 0;"> CommuniCare</h1>
+            <img src="{% static 'commlogo.PNG'%}" class="logo" alt="CommuniCare Logo">
         </div>
-    </body>
+        
+        <img id="langButton" src="{% static 'langbutton.jpg'%}"class ="langbutton" alt="langbutton">
+    </div>
+
+   <div class="dropdown" id="dropdownMenu">
+        <ul class="nav-bar">
+            <li><a href="#">English</a></li>
+            <li><a href="#">French</a></li>
+            <li><a href="#">Chinese</a></li>
+            <li><a href="#">Spanish</a></li>
+            <li><a href="#">Russian</a></li>
+            <li><a href="#">Arabic</a></li>
+            <li><a href="#">Portuguese</a></li>
+            <li><a href="#">Ukrainian</a></li>
+            <li><a href="#">Japanese</a></li>
+            <li><a href="#">Korean</a></li>
+            <li><a href="#">Italian</a></li>
+        </ul>
+    </div>
+
+
+    <div class = "red-line"> </div>
+    <div>
+        <ol>
+            {% block breadcrumb %}
+            {% endblock %}
+        </ol>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        document.getElementById('langButton').addEventListener('click', function() {
+            var dropdown = document.getElementById('dropdownMenu');
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
+        });
+
+        // Added event listener for all language list items
+        const items = document.querySelectorAll('.nav-bar li');
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove 'selected' class from all items
+                items.forEach(i => i.classList.remove('selected'));
+
+                // Add 'selected' class to the clicked item
+                item.classList.add('selected');
+
+                // Wait for 1 second before closing the dropdown
+                setTimeout(function() {
+                    var dropdown = document.getElementById('dropdownMenu');
+                    dropdown.style.display = "none";
+                }, 100); // 1 second delay before closing dropdown
+
+                // Wait for 1 second before removing the red color from the selected language
+                setTimeout(function() {
+                    item.classList.remove('selected');
+                }, 100); // 1 second delay before resetting color
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('dropdownMenu');
+            var langButton = document.getElementById('langButton');
+            if (!langButton.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    </script>
+</body>
 </html>

@@ -55,15 +55,15 @@ class searchCriteria(FormView):
 
     def form_valid(self,form):
         print('got here??')
-        distance=form.cleaned_data.get('distance')
+        #distance=form.cleaned_data.get('distance')
         specialty=form.cleaned_data.get('specialty')
         female=form.cleaned_data.get('female')
         male=form.cleaned_data.get('male')
-        print(distance)
+        #print(distance)
         print(specialty)
         print(female)
         print(male)
-        return redirect('searchresults',distance,specialty,female,male)
+        return redirect('searchresults',specialty,female,male)
 
 #i removed an if request.method==post from this, should maybe check if that needs to be added back
 class searchResults(View):
@@ -73,13 +73,14 @@ class searchResults(View):
         languages=me.languages.all()
         accessibility=me.acessibility
         doctors=[]
-        query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(docprofile__specialty=specialty)
+        query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(profile__specialty=specialty)
         print(me.location)
         if accessibility==True:
             query&=Q(accessibility=True)
         if male==True:
             query&=Q(is_male=True)
         if female==True:
+            query&=Q(is_female=True)
             query&=Q(is_female=True)
         for language in languages:
             doctors+=language.user_set.filter(query)
@@ -124,3 +125,12 @@ def loginView(request):
             return render(request,'login.html',{'form':form,'error':'user not valid'})
     else:
         return render(request,'login.html',{'form':form})
+
+def whatkindinfo(request):
+    return render(request, 'whatkindinfo.html')
+
+def qcinfo(request):
+    return render(request, 'qcinfo.html')
+
+def booking(request):
+    return render(request, 'booking.html')

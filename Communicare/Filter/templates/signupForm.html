@@ -1,13 +1,60 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block breadcrumb %}
-<h1>signup</h1>
+<h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(5px, 7vw, 40px); margin: 0;">Create Account</h1>
 {% endblock %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">submit</button>
-</form>
+<div class="box" style="top: clamp(180px, 30vw, 300px); position: absolute; bottom: 30px; left: 40px; right: 40px; 
+padding: 20px; font-family: 'Nunito', sans-serif; font-size: 1rem; color: #710E09; 
+text-align: center; border-radius: 15px; background-color: #FFF9F6; max-height: 300px; 
+overflow-y: auto; height: auto;border-radius: 10px; ">
+<div class = "form-group">
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class= "form-field">
+                <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
+                {% if field.name == 'languages' %}
+                <select name="{{ field.name }}" id="{{ field.id_for_label }}" class="languages-dropdown" multiple>
+                    {% for option in field.field.queryset %}
+                        <option value="{{ option.pk }}" {% if option in field.value %}selected{% endif %}>
+                            {{ option.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% else %}
+                {{ field }} <!-- Render other fields normally -->
+            {% endif %}
+            <small>{{ field.help_text }}</small>
+            </div>
+        {% endfor %}
+        <a href="{% url 'home' %}">
+            <button type="submit"> Next </button>
+        </a>
+        
+    </form>
+    
+    <script>
+        
+    document.querySelectorAll('.languages-dropdown option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Toggle selected class on click
+            if (this.selected) {
+                this.classList.add('selected');
+            } else {
+                this.classList.remove('selected');
+            }
+        });
+    });
+    </script>
+</div>
+</div>
+
+
+
 {% endblock %}
+<a href="{% url 'signup' %}">
+    <button> Next </button>
+</a>
