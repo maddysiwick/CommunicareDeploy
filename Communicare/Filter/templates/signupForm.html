@@ -16,7 +16,20 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
         {% for field in form %}
             <div class= "form-field">
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
+                
                 {% if field.name == 'languages' %}
+                <div class = "dropdown" id="dropdownMenu">
+                    <ul class = "nav-bar">
+                        {% for language in form.languages.field.queryset %}
+                        <li><a href = "#" class = "language-option" data-language="{{language.pk}}" >{{language.name}}</a> </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <button type ="button" id = "selectedLanguageButton" class ="selected-language">Select Languages</button>
+                <input type="hidden" name="languages" id="languagesInput" />
+                
+                
+                
                 <select name="{{ field.name }}" id="{{ field.id_for_label }}" class="languages-dropdown" multiple>
                     {% for option in field.field.queryset %}
                         <option value="{{ option.pk }}" {% if option in field.value %}selected{% endif %}>
