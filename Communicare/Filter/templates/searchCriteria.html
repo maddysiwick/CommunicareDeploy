@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-<h1>what are you looking for</h1>
+<h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(5px, 7vw, 40px); margin: 0; text-align: center;">Finding a healthcare professional</h1>
 {% endblock %}
 
 {% block content %}
@@ -9,5 +9,22 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">search</button>
+    <div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: absolute; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: center;overflow-y: auto;">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}" class="label-red">{{ form.username.label }}</label>
+            {{ form.distance }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
+            {{ form.Specialty }}
+        </div>
+        <a href="{% url 'searchResults' %}">
+            <button type="submit" style = "margin-bottom: 50px" >Search</button>
+        </a>
+        
+    </div>
 </form>
 {% endblock %}
+
+<a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
