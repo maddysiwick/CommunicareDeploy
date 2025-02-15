@@ -14,10 +14,9 @@
 <form method="post" action="{% url 'login' %}">
     
     <div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: absolute; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: center;overflow-y: auto;">
-        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2px, 3vw, 50px); margin-bottom: 30px; margin-top: 50px">Login</h1>
+        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2px, 3vw, 50px); margin-bottom: 30px; margin-top: 50px; position: absolute;">Login</h1>
         {% csrf_token %}
         <div class="form-group">
-
             <label for="{{ form.username.id_for_label }}" class="label-red">{{ form.username.label }}</label>
             {{ form.username }}
         </div>
@@ -25,7 +24,6 @@
             <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
             {{ form.password }}
         </div>
-        {{form.as_p}}
         <button type="submit" style = "margin-bottom: 10px" >login</button>
         <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: 1rem; margin: 0; margin-bottom: 10px;">Don't have an account?</h1>
         <a href="{% url 'triage' %}" style="color: #9C2F2F; margin-bottom: 30px"> Create an account</a>
