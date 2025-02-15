@@ -17,11 +17,12 @@
         <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2px, 3vw, 50px); margin-bottom: 30px; margin-top: 50px">Login</h1>
         {% csrf_token %}
         <div class="form-group">
-            {{ form.username.label_tag(attrs={'class': 'label-red'}) }}
+
+            <label for="{{ form.username.id_for_label }}" class="label-red">{{ form.username.label }}</label>
             {{ form.username }}
         </div>
         <div class="form-group">
-            {{ form.password.label_tag(attrs={'class': 'label-red'}) }}
+            <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
             {{ form.password }}
         </div>
         {{form.as_p}}
