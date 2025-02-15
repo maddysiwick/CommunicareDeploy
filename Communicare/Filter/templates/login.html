@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block breadcrumb %}
-<h1>login</h1>
+<h1 style="top: 20px; font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(3px, 5vw, 50px); margin: 0; position: relative; text-align: center; left: calc(50% - 50vw + 85px);">Welcome to CommuniCare!</h1>
+
 {% if error %}
 <p>{{error}}</p>
 {% endif %}
@@ -9,8 +10,16 @@
 
 {% block content %}
 <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{form.as_p}}
+    
+    <div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: fixed; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: center;">
+        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(2rem, 2vw, 1.5rem); margin: 0; margin-bottom: 40px;">Login</h1>
+        <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
+        {% csrf_token %}
+        {{form.as_p}}
+        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font: clamp(1rem); margin: 0; margin-bottom: 40px;">Don't have an account?</h1>
+        <a href="{% url 'triage' %}"> Create an account</a>
+    </div>
+    
     <button type="submit">login</button>
 </form>
 {% endblock %}
