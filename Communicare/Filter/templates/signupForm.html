@@ -15,10 +15,14 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
         {% csrf_token %}
         {% for field in form %}
             <div class= "form-field">
+
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                 
-                {% if field.name == 'languages' %}
+                {% if field.name == 'password1' %}
+                    {{field|add_class:"password-field"}}
+               
 
+                {% if field.name == 'languages' %}
                 <div class = "language-selector">
                     <ul class = "language-list">
                         {% for language in form.languages.field.queryset %}
@@ -33,7 +37,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 {% else %}
                     {{ field }}
                 {% endif %}
-            <small>{{ field.help_text }}</small>
+                <small>{{ field.help_text }}</small>
             </div>
         {% endfor %}
         <a href="{% url 'home' %}">
