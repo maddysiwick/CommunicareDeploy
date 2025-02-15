@@ -20,6 +20,8 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
+                {% elif field.name == 'password2' %}
+                    {{field|add_class:"password-field"}}
                 {% elif field.name == 'languages' %}
                     <div class = "language-selector">
                         <ul class = "language-list">
@@ -34,7 +36,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 {% else %}
                     {{ field }}
                 {% endif %}
-                
+
                 <small>{{ field.help_text }}</small>
             </div>
         {% endfor %}
