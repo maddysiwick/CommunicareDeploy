@@ -134,3 +134,6 @@ def qcinfo(request):
 
 def booking(request):
     return render(request, 'booking.html')
+
+def triage(request):
+    return render(request, 'triage.html')

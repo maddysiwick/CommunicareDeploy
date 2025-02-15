@@ -34,7 +34,8 @@ urlpatterns = [
     path('qcinfo/',views.qcinfo,name='qcinfo'),
     path('booking/',views.booking,name='booking'),
     path('logout/',authViews.LogoutView.as_view(),name='logout'),
-    path('login',views.loginView,name='login')
+    path('login',views.loginView,name='login'),
+    path('triage', views.loginView, name='triage')
 
 ]
 
