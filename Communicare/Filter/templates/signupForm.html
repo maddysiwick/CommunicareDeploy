@@ -20,23 +20,21 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
-               
-
-                {% if field.name == 'languages' %}
-                <div class = "language-selector">
-                    <ul class = "language-list">
-                        {% for language in form.languages.field.queryset %}
-                            <li class="language-option" data-language="{{language.pk}}">
-                                {{language.name}}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                
-                <input type="hidden" name="languages" id="languagesInput" />
+                {% elif field.name == 'languages' %}
+                    <div class = "language-selector">
+                        <ul class = "language-list">
+                            {% for language in form.languages.field.queryset %}
+                                <li class="language-option" data-language="{{language.pk}}">
+                                    {{language.name}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <input type="hidden" name="languages" id="languagesInput" />
                 {% else %}
                     {{ field }}
                 {% endif %}
+                
                 <small>{{ field.help_text }}</small>
             </div>
         {% endfor %}
