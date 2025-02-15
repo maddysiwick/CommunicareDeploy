@@ -16,10 +16,11 @@
         <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
         {% csrf_token %}
         {{form.as_p}}
-        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font: clamp(1rem); margin: 0; margin-bottom: 40px;">Don't have an account?</h1>
-        <a href="{% url 'triage' %}"> Create an account</a>
+        <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: 1rem; margin: 0; margin-bottom: 40px;">Don't have an account?</h1>
+        <a href="{% url 'triage' %}" style="color: #9C2F2F;"> Create an account</a>
+        <button type="submit">login</button>
     </div>
     
-    <button type="submit">login</button>
+    
 </form>
 {% endblock %}
