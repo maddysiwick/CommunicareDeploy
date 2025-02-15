@@ -30,6 +30,8 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 </div>
                 
                 <input type="hidden" name="languages" id="languagesInput" />
+                {% else %}
+                    {{ field }}
                 {% endif %}
             <small>{{ field.help_text }}</small>
             </div>
