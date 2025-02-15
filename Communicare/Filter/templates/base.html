@@ -10,6 +10,31 @@
     <link href = "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
     <link href = "https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel ="stylesheet">
     <style>
+        .language-selector {
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: white;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .language-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .language-option {
+            padding: 8px;
+            cursor: pointer;
+            color: #710E09;
+        }
+        .language-option:hover {
+            background-color: #FFF9F6
+        }
+        .language-option.selected {
+            background-color: #710E09;
+            color: white;
+        }
+        
         
         input, textarea, select {
             border: 1px solid #710E09; 
@@ -32,58 +57,6 @@
             box-shadow: 0 0 4px #710E09;
             outline: #710E09;
          }
-
-        /* Ensure the multi-select dropdown is wide enough */
-        /*select[multiple] {
-            width: 100%; 
-            padding: 10px;
-            font-size: 1rem;
-            border: none;
-            background-color: #F3EAE5; 
-            border-radius: 5px;
-            box-sizing: border-box;
-            color: #710E09;
-        }
-            */
-        .languages-dropdown {
-            width: 70%;
-            height: 150px;
-            padding: 10px;
-            background-color: #F3EAE5;
-            color: #710E09;
-            border-radius: 5px;
-            font-size: 1rem;
-            overflow-y: auto;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border: none;
-        }
-
-        .languages-dropdown option {
-            padding: 10px;
-            background-color: #F3EAE5;
-            color: #710E09;
-            font-size: 1rem;
-        }
-        select:focus, .languages-dropdown:focus {
-            box-shadow: none;
-            outline: none;
-}
-        .languages-dropdown option:hover {
-            background-color: #FFF9F6;
-        }
-        languages-dropdown option.selected {
-            background-color: #710E09;
-            color: #FFF9F6;
-        }
-
-        /* Adjust the height of the dropdown */
-        select[multiple] option {
-            padding: 10px; /* Space for each option */
-            font-size: 1rem; /* Font size for options */
-        }
-
         .logo {
             width: 9vw;
             height: auto;
