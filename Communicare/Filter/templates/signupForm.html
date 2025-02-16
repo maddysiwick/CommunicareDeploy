@@ -23,7 +23,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 {% elif field.name == 'languages' %}
                     <div class="box" style="position: absolute; width: 70%; max-height: 300px; overflow-y: auto; justify-content: left; align-items: left;">
                        <nav>
-                        <ul class = "nav-bar">
+                        <ul class = "nav-bar1">
                             {% for languages in form.languages.field.queryset %}
                                 <li>
                                     <a href="#">{{language.object.all}}</a>

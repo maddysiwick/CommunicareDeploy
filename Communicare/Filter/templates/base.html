@@ -221,6 +221,69 @@
             color: #fff9f6;
             background-color: #710E09;
         }
+
+        .nav-bar1 {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction:column;
+            align-items: center;
+        }
+
+        .nav-bar1 li {
+            padding: 10px;
+            background-color: white;
+            margin: 5px 0;
+            color: #710E09;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 10px;
+        }
+
+        .nav-bar1 li a {
+            text-decoration: none;
+            color: #710E09;
+            width: 90%;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .nav-bar1 li:hover {
+            background-color: #F3EAE5;
+            cursor: pointer;
+        }
+
+        .nav-bar1 li:not(.selected):hover {
+            background-color: #F3EAE5;
+        }
+
+        .nav-bar1 li.selected {
+            background-color: #710E09;
+            max-width: 90%;
+        }
+
+        .nav-bar1 li.selected a {
+            background-color: #710E09;
+            color: #FFF9F6; /* Maintain dark red background when hovered */
+        }
+
+        .box::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .box::-webkit-scrollbar-thumb:hover {
+            background-color: #9C2F2F;
+            border-radius: 10px;
+        }
+
+        .selected-language {
+            color: #fff9f6;
+            background-color: #710E09;
+        }
         button {
          background-color: #710E09;
          color: #FFF9F6;
