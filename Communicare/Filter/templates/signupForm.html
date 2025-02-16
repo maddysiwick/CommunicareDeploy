@@ -26,8 +26,8 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                         <ul class = "nav-bar">
                             {% for languages in languages %}
                                 <li>
-                                    <a href="#">{{language.name}}</a>
-                                </li>
+                                    <a href="#">{{language.object.all}}</a>
+                                </li> 
                             {% empty %}
                                 <li>No languages available.</li>
                             {% endfor %}
