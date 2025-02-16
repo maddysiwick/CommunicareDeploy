@@ -18,6 +18,7 @@ class DocSignupView(CreateView):
     model=User
     form_class=DoctorSignupForm
     template_name='signupForm.html'
+    languages = Language.objects.all
 
     def get_context_data(self, **kwargs):
         kwargs['user_type']='doctor'
@@ -139,7 +140,4 @@ def booking(request):
 def triage(request):
     return render(request, 'triage.html')
 
-def langview(request):
-    languages = Language.objects.all()
-    return render(request, 'signupForm.html', {'languages': languages})
 
