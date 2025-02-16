@@ -24,7 +24,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                     <div class="box" style="position: absolute; width: 70%; max-height: 300px; overflow-y: auto; justify-content: left; align-items: left;">
                        <nav>
                         <ul class = "nav-bar">
-                            {% for languages in languages %}
+                            {% for languages in form.languages.field.queryset %}
                                 <li>
                                     <a href="#">{{language.object.all}}</a>
                                 </li> 
