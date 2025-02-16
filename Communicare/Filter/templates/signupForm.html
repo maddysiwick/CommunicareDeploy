@@ -21,12 +21,12 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
                 {% elif field.name == 'languages' %}
-                    <div class="box" style="position: absolute; width: 70%; max-height: 300px; overflow-y: auto; justify-content: left; align-items: left;">
+                    <div class="language-select-box" style="right: 40px; left: 40px; max-height: 100px; overflow-y: auto; justify-content: left; padding-left: 20px;">
                        <nav>
                         <ul class = "nav-bar1">
                             {% for languages in form.languages.field.queryset %}
-                                <li>
-                                    <a href="#">{{language.object.all}}</a>
+                                <li class="language-option" data-language="{{ language.pk }}"></li>
+                                    <a href="#">{{language.name}}</a>
                                 </li> 
                             {% empty %}
                                 <li>No languages available.</li>
