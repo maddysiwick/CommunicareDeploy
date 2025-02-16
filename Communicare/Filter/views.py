@@ -8,6 +8,7 @@ from django.contrib.gis.geos import Point
 from django.db.models import Q
 from django.views.generic.edit import FormView
 from django.views import View
+from .models import Language
 
 # Create your views here.
 #these views might be ass go back over them later
@@ -137,3 +138,8 @@ def booking(request):
 
 def triage(request):
     return render(request, 'triage.html')
+
+def langview(request):
+    languages = Language.objects.all()
+    return render(request, 'signupForm.html', {'languages': languages})
+
