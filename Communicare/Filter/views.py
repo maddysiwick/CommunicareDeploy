@@ -35,6 +35,7 @@ class PatientSignupView(CreateView):
     model=User
     form_class=PatientSignupForm
     template_name='signupForm.html'
+    languages = Language.objects.all
     
 
     def get_context_data(self, **kwargs):
