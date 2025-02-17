@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.views.generic.edit import FormView
 from django.views import View
 from .models import Language
+from django import forms
 
 # Create your views here.
 #these views might be ass go back over them later
@@ -34,6 +35,7 @@ class PatientSignupView(CreateView):
     model=User
     form_class=PatientSignupForm
     template_name='signupForm.html'
+    
 
     def get_context_data(self, **kwargs):
         kwargs['user_type']='patient'
@@ -41,6 +43,8 @@ class PatientSignupView(CreateView):
     
     def form_valid(self, form):
         user=form.save()
+        selected_languages = form.cleaned_data['languages']
+        user.languages.set(selected_languages)
         login(self.request,user)
         return redirect('home')
     
