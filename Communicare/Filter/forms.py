@@ -34,6 +34,7 @@ class PatientSignupForm(UserCreationForm):
     name=forms.CharField(max_length=100)#help_text='what is your name')
     accessibility=forms.BooleanField(help_text='I am physically handicapped',required=False)
     address=forms.CharField(max_length=500)
+    asylum=forms.BooleanField(required=False)
     class Meta(UserCreationForm.Meta):
         model=User
         fields = ['languages', 'name', 'accessibility', 'address']
@@ -60,6 +61,7 @@ class PatientSignupForm(UserCreationForm):
         user.address=spacial[0]
         user.location=spacial[1]
         user.accessibility=self.cleaned_data.get('accessibility')
+        user.asylum=self.cleaned_data.get('asylum')
         user.save()
         pat=PatientProfile.objects.create()
         pat.user=user
@@ -78,6 +80,7 @@ class DoctorSignupForm(UserCreationForm):
     address=forms.CharField(max_length=500)
     male=forms.BooleanField(help_text='m',required=False)
     female=forms.BooleanField(help_text='f',required=False)
+    asylum=forms.BooleanField(required=False)
     
     specialty=forms.CharField(help_text='what is your field of specialty')
 
@@ -90,6 +93,7 @@ class DoctorSignupForm(UserCreationForm):
         user.is_doctor=True
         user.name=self.cleaned_data.get('name')
         user.acessibility=self.cleaned_data.get('accessibility')
+        user.asylum=self.cleaned_data.get(asylum)
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
         spacial=getCoords(self.cleaned_data.get('address'))

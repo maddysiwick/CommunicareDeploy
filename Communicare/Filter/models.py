@@ -19,6 +19,7 @@ class User(AbstractUser):
     address=models.CharField(max_length=500,null=True)
     location=models.PointField(default=Point(0,0))
     languages=models.ManyToManyField(Language)
+    asylum=models.BooleanField(True)
 
     def __str__(self):
         return self.name
