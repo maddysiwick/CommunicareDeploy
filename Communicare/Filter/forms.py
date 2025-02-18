@@ -3,8 +3,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.contrib.gis.geos import Point
 from geopy import Nominatim
+from dal import autocomplete
 
 from .models import DoctorProfile,User,Language,PatientProfile
+
+class languageAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs=Language.objects.all()
+        if self.q:
+            qs=qs.filter(lang__contains=self.q)
+        return qs
+    def get_result_label(self,item):
+        return item.lang
 
 def getCoords(addressBad):
     geolocator=Nominatim(user_agent='Communicare')
@@ -16,7 +26,7 @@ def getCoords(addressBad):
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple,
+        widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),
         queryset=Language.objects.all(),
         required=True) 
         
@@ -62,7 +72,7 @@ class PatientSignupForm(UserCreationForm):
 
 
 class DoctorSignupForm(UserCreationForm):
-    languages=forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple,queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
+    languages=forms.ModelMultipleChoiceField(widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
     name=forms.CharField(max_length=100)
     accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     address=forms.CharField(max_length=500)
