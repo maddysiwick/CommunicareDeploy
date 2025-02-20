@@ -93,7 +93,7 @@ class DoctorSignupForm(UserCreationForm):
         user.is_doctor=True
         user.name=self.cleaned_data.get('name')
         user.acessibility=self.cleaned_data.get('accessibility')
-        user.asylum=self.cleaned_data.get(asylum)
+        user.asylum=self.cleaned_data.get('asylum')
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
         spacial=getCoords(self.cleaned_data.get('address'))
