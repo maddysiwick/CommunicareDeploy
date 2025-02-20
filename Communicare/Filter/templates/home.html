@@ -32,7 +32,7 @@
 
 {% if user.is_patient %}
 <br>
-<h2>booksmarks</h2>
+<h2>bookmarks</h2>
 {% for doctor in user.patientprofile.providers.all %}
 <a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
 {% endfor %}
