@@ -79,6 +79,7 @@ class searchResults(View):
         here=me.location
         languages=me.languages.all()
         accessibility=me.acessibility
+        asylum=me.asylum
         doctors=[]
         query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(profile__specialty=specialty)
         print(me.location)
@@ -88,7 +89,8 @@ class searchResults(View):
             query&=Q(is_male=True)
         if female==True:
             query&=Q(is_female=True)
-            query&=Q(is_female=True)
+        if asylum==True:
+            query&=Q(asylum=True)
         for language in languages:
             doctors+=language.user_set.filter(query)
         print(len(doctors))
