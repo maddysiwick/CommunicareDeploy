@@ -10,10 +10,19 @@ from django.views.generic.edit import FormView
 from django.views import View
 from .models import Language
 from django import forms
+from dal import autocomplete
 
 # Create your views here.
 #these views might be ass go back over them later
 
+class languageAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs=Language.objects.all()
+        if self.q:
+            qs=qs.filter(lang__contains=self.q)
+        return qs
+    def get_result_label(self,item):
+        return item.lang
 
 class DocSignupView(CreateView):
     model=User

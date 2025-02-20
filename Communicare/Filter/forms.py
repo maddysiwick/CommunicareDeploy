@@ -4,17 +4,7 @@ from django.db import transaction
 from django.contrib.gis.geos import Point
 from geopy import Nominatim
 from dal import autocomplete
-
 from .models import DoctorProfile,User,Language,PatientProfile
-
-class languageAutocomplete(autocomplete.Select2QuerySetView):
-    def get_queryset(self):
-        qs=Language.objects.all()
-        if self.q:
-            qs=qs.filter(lang__contains=self.q)
-        return qs
-    def get_result_label(self,item):
-        return item.lang
 
 def getCoords(addressBad):
     geolocator=Nominatim(user_agent='Communicare')

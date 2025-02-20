@@ -35,7 +35,8 @@ urlpatterns = [
     path('booking/',views.booking,name='booking'),
     path('logout/',authViews.LogoutView.as_view(),name='logout'),
     path('login',views.loginView,name='login'),
-    path('triage', views.triage, name='triage')
+    path('triage', views.triage, name='triage'),
+    path('language-autocomplete',views.languageAutocomplete,name='language-autocomplete')
 
 ]
 
