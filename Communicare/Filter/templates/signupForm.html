@@ -13,11 +13,11 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
 <div class = "form-group">
     <form method="post" class="mt-4">
         {% csrf_token %}
-        {% for field in form %}
+        <!--{% for field in form %}
             <div class= "form-field">
 
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
-               <!--
+               
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
                 {% elif field.name == 'languages' %}
@@ -34,13 +34,14 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                         </ul>
                        </nav>
                     </div>
-                {% else %}-->
+                {% else %}
                     {{ field }}
                 {% endif %}
 
                 <small>{{ field.help_text }}</small>
             </div>
-        {% endfor %}
+        {% endfor %}-->
+        {{form.as_p}}
         {{form.media}}
         <a href="{% url 'home' %}">
             <button type="submit"> Next </button>
