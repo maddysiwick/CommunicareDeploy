@@ -38,14 +38,13 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                         </ul>
                        </nav>
                     </div>
-                {% else %}
+                {% else %}-->
                     {{ field }}
                 {% endif %}
 
                 <small>{{ field.help_text }}</small>
             </div>
-        {% endfor %}-->
-        {{form.as_p}}
+        {% endfor %}
         {{form.media}}
         <a href="{% url 'home' %}">
             <button type="submit"> Next </button>
