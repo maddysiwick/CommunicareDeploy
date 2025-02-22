@@ -20,7 +20,7 @@ class UserAdmin(UserAdmin):
                     'acessibility',
                     'location',
                     'address',
-                    'languages',
+                    #'languages',
                 ),
             },
         ),
