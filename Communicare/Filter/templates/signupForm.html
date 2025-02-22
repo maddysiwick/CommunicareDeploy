@@ -17,14 +17,14 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
 <div class = "form-group">
     <form method="post" class="mt-4">
         {% csrf_token %}
-        <!--{% for field in form %}
+        {% for field in form %}
             <div class= "form-field">
 
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
-                {% elif field.name == 'languages' %}
+                <!--{% elif field.name == 'languages' %}
                     <div class="language-select-box" style="right: 40px; left: 40px; max-height: 100px; overflow-y: auto; justify-content: left; padding-left: 20px; background-color: white;">
                        <nav>
                         <ul class = "nav-bar1">
@@ -37,10 +37,10 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
                             {% endfor %}
                         </ul>
                        </nav>
-                    </div>
-                {% else %}-->
-        {{ field }}
-
+                    </div>-->
+                {% else %}
+                    {{ field }}
+                {% endif %}
                 <small>{{ field.help_text }}</small>
             </div>
         {% endfor %}
