@@ -16,8 +16,8 @@ def getCoords(addressBad):
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(
-        widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),
         queryset=Language.objects.all(),
+        widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),
         required=True) 
         
     
@@ -64,7 +64,7 @@ class PatientSignupForm(UserCreationForm):
 
 
 class DoctorSignupForm(UserCreationForm):
-    languages=forms.ModelMultipleChoiceField(widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
+    languages=forms.ModelMultipleChoiceField(queryset=Language.objects.all(),widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),required=True,help_text='what languages do you speak')
     name=forms.CharField(max_length=100)
     accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     address=forms.CharField(max_length=500)
