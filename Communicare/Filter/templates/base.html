@@ -54,7 +54,12 @@
             margin: 2px!important;
             border: none !important;
             outline: none !important;
-}
+        }
+
+        select:focus {
+            outline: none !important; /* Remove outline */
+            box-shadow: none !important; /* Remove the shadow if you don't want it */
+        }
 
         /* Hover effect */
         .select2-container--default .select2-selection--multiple .select2-selection__choice:hover {
