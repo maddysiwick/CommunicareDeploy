@@ -7,7 +7,7 @@
 
 {% block content %}
 <form method="post">
-    <button type="submit">{% trans "Search" %}</button>
+    
     <div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: absolute; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: center;overflow-y: auto;">
         {% csrf_token %}
         <div class="form-group">
@@ -18,7 +18,11 @@
             <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
             {{ form.Specialty }}
         </div>
+        <a href="{% url 'searchResults' %}">
+            <button type="submit">{% trans "Search" %}</button>
+        </a>
     </div>
+       
 </form>
 {% endblock %}
 
