@@ -17,8 +17,10 @@
     <a href="{% url 'home' %}">
         <img id="homebutton" src="{% static 'homebutton.jpg'%}"class ="homebutton" alt="homebutton">
     </a>
-    
-    <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
+    <a href="{% url 'login' %}">
+        <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
+    </a>
+
 </div>
 
 <div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;font-size: 1rem;color: #F3EAE5;text-align: center;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); position: absolute;">
