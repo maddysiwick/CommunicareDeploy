@@ -24,6 +24,10 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
 
                 <small>{{ field.help_text }}</small>
             </div>
+            <select class="language-select2" name="languages" multiple="multiple">
+                {% for languages in languages %}
+                    <option value="{{language.id}}">{{language.name }}</option>
+            </select>
         {% endfor %}
         {{form.media}}
         <a href="{% url 'home' %}">
