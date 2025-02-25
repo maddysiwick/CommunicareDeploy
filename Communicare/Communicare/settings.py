@@ -124,7 +124,7 @@ LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', 'English'),
     ('fr','Français'),
-    ('es','Español')
+    ('es','Español'),
     ('zh','chinese')
 ]
 
