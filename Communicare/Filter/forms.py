@@ -103,12 +103,13 @@ class DoctorSignupForm(UserCreationForm):
         return user
 
 class SearchCrieteriaForm(forms.Form):
-    distance=forms.IntegerField(help_text='what is the max distNCE YOU ARE WILLING TO TRAVEL(m)')
+    distance=forms.IntegerField()
     #replace this with a multiple choice field at some point
-    specialty=forms.CharField(help_text='what kimd of professional are you looking for')
-    male=forms.BooleanField(help_text='i need a male doctor',required=False)
-    female=forms.BooleanField(help_text='i need a female docgtor',required=False)
-
+    specialty=forms.CharField()
+    male=forms.BooleanField(required=False)
+    female=forms.BooleanField(required=False)
+    
+   
 class loginForm(forms.Form):
     username=forms.CharField(max_length=100)
     password=forms.CharField(max_length=100)
