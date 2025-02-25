@@ -71,7 +71,8 @@ class searchCriteria(FormView):
 
     def form_valid(self,form):
         print('got here??')
-        distance=int(form.cleaned_data.get('distance'))
+        #MAJOR CHEAT FIX THIS
+        distance=((form.cleaned_data.get('distance'))/40075.017)*360
         specialty=form.cleaned_data.get('specialty')
         female=form.cleaned_data.get('female')
         male=form.cleaned_data.get('male')
@@ -92,7 +93,7 @@ class searchResults(View):
         accessibility=me.acessibility
         asylum=me.asylum
         doctors=[]
-        query=Q(is_doctor=True)&Q(location__distance_lt=(here,Distance(km=distance)))&Q(docprofile__specialty=specialty)
+        query=Q(is_doctor=True)&Q(location__within=here.buffer(distance))&Q(docprofile__specialty=specialty)
         print(me.location)
         if accessibility==True:
             query&=Q(accessibility=True)
