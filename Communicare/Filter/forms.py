@@ -16,13 +16,9 @@ def getCoords(addressBad):
 
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(
+        widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),
         queryset=Language.objects.all(),
-        widget=autocomplete.Select2Multiple(
-            url='language-autocomplete',
-            attrs={'multiple':True, 'class': 'language-select2'}
-            ),
-            queryset=Language.objecs.all(),
-            required=True) 
+        required=True) 
         
     
     name=forms.CharField(max_length=100)#help_text='what is your name')
@@ -31,7 +27,7 @@ class PatientSignupForm(UserCreationForm):
     asylum=forms.BooleanField(required=False)
     class Meta(UserCreationForm.Meta):
         model=User
-        fields = ['languages','name', 'accessibility', 'address']
+        fields = ['languages', 'name', 'accessibility', 'address']
 
     widgets = {
         'name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'This is your name'}),
@@ -68,7 +64,7 @@ class PatientSignupForm(UserCreationForm):
 
 
 class DoctorSignupForm(UserCreationForm):
-    languages=forms.ModelMultipleChoiceField(queryset=Language.objects.all(),widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}))
+    languages=forms.ModelMultipleChoiceField(widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True}),queryset=Language.objects.all(),required=True,help_text='what languages do you speak')
     name=forms.CharField(max_length=100)
     accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     address=forms.CharField(max_length=500)
