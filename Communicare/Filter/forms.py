@@ -27,7 +27,7 @@ class PatientSignupForm(UserCreationForm):
     asylum=forms.BooleanField(required=False)
     class Meta(UserCreationForm.Meta):
         model=User
-        fields = ['languages', 'name', 'accessibility', 'address']
+        #fields = ['languages', 'name', 'accessibility', 'address']
 
     widgets = {
         'name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'This is your name'}),
