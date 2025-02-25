@@ -79,7 +79,7 @@ class searchCriteria(FormView):
         print(specialty)
         print(female)
         print(male)
-        return redirect('searchresults',specialty,female,male)
+        return redirect('searchresults',distance,specialty,female,male)
 
 #i removed an if request.method==post from this, should maybe check if that needs to be added back
 class searchResults(View):

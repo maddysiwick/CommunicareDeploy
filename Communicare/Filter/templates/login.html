@@ -23,9 +23,9 @@
             <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
             {{ form.password }}
         </div>
-        <button type="submit" style = "margin-bottom: 50px" >login</button>
+        <button type="submit" style = "margin-bottom: 50px" >{% trans "Login" %}</button>
         <h1 style="font-family: Nunito, sans-serif; color: #710E09; font-size: 1rem; margin: 0; margin-bottom: 10px;">Don't have an account?</h1>
-        <a href="{% url 'triage' %}" style="color: #9C2F2F; margin-bottom: 10px"> Create an account</a>
+        <a href="{% url 'triage' %}" style="color: #9C2F2F; margin-bottom: 10px"> {% trans "Create an account" %}</a>
         
     </div>
     
