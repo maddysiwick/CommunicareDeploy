@@ -71,7 +71,7 @@ class searchCriteria(FormView):
 
     def form_valid(self,form):
         print('got here??')
-        distance=form.cleaned_data.get('distance')
+        distance=int(form.cleaned_data.get('distance'))
         specialty=form.cleaned_data.get('specialty')
         female=form.cleaned_data.get('female')
         male=form.cleaned_data.get('male')
