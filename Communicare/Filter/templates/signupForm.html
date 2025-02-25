@@ -15,32 +15,27 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
 <div class = "form-group">
     <form method="post" class="mt-4">
         {% csrf_token %}
+
         {% for field in form %}
             <div class= "form-field">
-
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                     {{ field }}
-        
-
-                <small>{{ field.help_text }}</small>
+                    <small>{{ field.help_text }}</small>
             </div>
-            <select class="language-select2" name="languages" multiple="multiple">
-                {% for languages in languages %}
-                    <option value="{{language.id}}">{{language.name }}</option>
-            </select>
-        {% endfor %}
-        {{form.media}}
-        <a href="{% url 'home' %}">
-            <button type="submit"> Next </button>
-        </a>
+            {% endfor %}
 
+            <div class= "form-field">
+                <label for="languages" class="label-red">Languages</label>
+                <select class="language-select2" name="languages" multiple="multiple">
+                    {% for language in languages %}
+                        <option value="{{ language.id }}">{{ language.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            {{form.media}}
+            <button type="submit"> Next </button>
     </form>
 </div>
 </div>
-
-
-
 {% endblock %}
-<a href="{% url 'signup' %}">
-    <button> Next </button>
-</a>
