@@ -21,10 +21,13 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
             <div class= "form-field">
 
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
+<<<<<<< HEAD
                
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
                 {% else %}
+=======
+>>>>>>> edf404f (i hate java script)
                     {{ field }}
                 {% endif %}
                 <small>{{ field.help_text }}</small>
@@ -34,6 +37,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
         <a href="{% url 'home' %}">
             <button type="submit"> Next </button>
         </a>
+<<<<<<< HEAD
     
     <!--<script>
         document.querySelectorAll('.language-option').forEach(option => {
@@ -52,6 +56,8 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
             });
         });
     </script>-->
+=======
+>>>>>>> edf404f (i hate java script)
     </form>
 </div>
 </div>
