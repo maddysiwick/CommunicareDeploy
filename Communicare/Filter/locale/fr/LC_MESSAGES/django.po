@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 #: templates/booking.html:24 templates/whatkindinfo.html:29
 msgid "Booking an appointment"
-msgstr ""
+msgstr "Prendre un rendez-vous"
 
 #: templates/booking.html:28
 msgid "How to book an appointment"
-msgstr ""
+msgstr "Comment prendre un rendez-vous"
 
 #: templates/booking.html:32
 msgid ""
@@ -31,17 +31,20 @@ msgid ""
 "use the phone number provided on our doctor information page. Once you dial, "
 "you can make an appointment by speaking with the receptionist of the office."
 msgstr ""
+"Lors de la prise de rendez-vous par téléphone, nous vous suggerons d'utiliser "
+"le numero founi sur la page d'information du docteur. Une fois que vous avez appelé, "
+"vous pouvez prendre un rendez-vous en parlant avec la receptioniste."
 
 #: templates/booking.html:33
 msgid ""
 "If you choose to email the office, provide your name, your phone number, the "
 "doctor you are trying to get an appointment with and the dates you would "
 "like to come into the office."
-msgstr ""
+msgstr "Si vous choisissez de contacter le clinique, indiquez votre nom, votre numero de téléphone, le medecin avec lequel vous voulez prendre un rendez-vous et vos disponibilités pour le rendez-vous."
 
 #: templates/booking.html:41
 msgid "Calling a doctor"
-msgstr ""
+msgstr "Appeler un medecin"
 
 #: templates/booking.html:45
 msgid ""
@@ -49,20 +52,23 @@ msgid ""
 "comfortable with. The doctor speaks your language, but the receptionist "
 "might not."
 msgstr ""
+"Commencez par demander à la receptioniste si elle parle la langue dans "
+"laquelle vous êtes le plus confortable. Le medecin parle votre langue, mais "
+"il est possble que la receptionist ne la parle pas."
 
 #: templates/booking.html:48 templates/booking.html:54
 #: templates/booking.html:60 templates/booking.html:66
 msgid "Or"
-msgstr ""
+msgstr "Ou"
 
 #: templates/booking.html:51
 msgid "If they don’t speak your language, here is what you should say:"
-msgstr ""
+msgstr "Si elle ne parle pas votre langue, voici ce que vous devriez dire:"
 
 #: templates/booking.html:57
 msgid ""
 "Introduce yourself and state which doctor you would like an appointment with."
-msgstr ""
+msgstr "Présentez-vous et indiquez avec quel medecin vous voulez prendre un rendez-vous."
 
 #: templates/booking.html:63
 msgid ""
@@ -70,6 +76,9 @@ msgid ""
 "you questions relating to the reasons you wish for an appointment that you "
 "do not wish to answer, here is what you should say:"
 msgstr ""
+"La receptioniste vous guidera à travers le processus. Si elle vous interroge "
+"sur les raisons pour lequelles vous voulez prendre le rendez-vous et vous ne "
+"voulez pas repondre, vous pouvez dire:"
 
 #: templates/booking.html:77
 msgid ""
@@ -78,40 +87,46 @@ msgid ""
 "provide the specialist’s phone number, the reason you need to go to that "
 "specialist and the doctor’s signature."
 msgstr ""
+"Pendant un rendez-vous avec un medecin de famille, il peut vous référer à "
+"un spécialiste. Il vous donnera une référence, un papier avec le numero de "
+téléphone du specialiste, la raison que vous avez besion d'un rendez-vous "
+"et la signature du medecin."
 
 #: templates/booking.html:78
 msgid ""
 "Coming soon: list of specialists that require referral and list of "
 "specialists that don’t require referrals"
 msgstr ""
+"À venir: une list de specialist qui demandent des références et une "
+"liste de specialistes qui ne demandent pas de référence."
 
 #: templates/home.html:6 templates/triage.html:4
 msgid "Welcome to CommuniCare"
-msgstr ""
+msgstr "Bienvenue à CommuniCare"
 
 #: templates/home.html:35
 msgid "Bookmarked providers"
-msgstr ""
+msgstr "Professionels favoris"
 
 #: templates/login.html:26
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: templates/login.html:28
 msgid "Create an account"
-msgstr ""
+msgstr "Créer un compte"
 
 #: templates/qcinfo.html:27
 msgid "Payment for asylum seekers"
-msgstr ""
+msgstr "Paiement pour les demandeurs d'asile"
 
 #: templates/qcinfo.html:31
 msgid "Coming Soon!"
-msgstr ""
+msgstr "À venir!"
 
 #: templates/qcinfo.html:36
 msgid "Private versus Public"
-msgstr ""
+msgstr "Privé versus publique"
 
 #: templates/qcinfo.html:40
 msgid ""
@@ -120,72 +135,77 @@ msgid ""
 "private insurance plan for private health care, then you will have to pay "
 "for the services yourself."
 msgstr ""
+"Les soins privés representent les politiques d'assurance payée par un "
+"individu ou par un employeur. Si vous n'avez pas une politique d'assurance privée, "
+"vous devriez payer pour les soins privés personnellement. "
 
 #: templates/qcinfo.html:41
 msgid ""
 "Public health care refers to services assured by the government; they are "
 "thus free if you have a valid Health Insurance Card issued by the government."
 msgstr ""
+"Les soins publiques representent les services offerts part le gouvernement. "
+"Ils sont alors gratuits à l'utilisation avec une carte d'assurance maladie valide."
 
 #: templates/qcinfo.html:42
 msgid ""
 "To know more about what services are covered by a Health Insurance Card "
 "issued by the government, visit this website:"
-msgstr ""
+msgstr "Pour mieux comprendre les services offerts avec la Carte Assurance Maladie, visitez ce site web:"
 
 #: templates/qcinfo.html:44 templates/qcinfo.html:49 templates/qcinfo.html:54
 #: templates/qcinfo.html:67 templates/qcinfo.html:72 templates/qcinfo.html:77
 msgid "Click here"
-msgstr ""
+msgstr "Cliquez ici"
 
 #: templates/qcinfo.html:47
 msgid "To sign up for a Health Insurance card, visit this website:"
-msgstr ""
+msgstr "Pour demander une carte d'assurance maladie, visitez ce site web"
 
 #: templates/qcinfo.html:52
 msgid "For more information, visite this website:"
-msgstr ""
+msgstr "Pour plus d'information, consultez ce site web"
 
 #: templates/qcinfo.html:61
 msgid "Links to government pages"
-msgstr ""
+msgstr "Liens aux pages gouvermentales"
 
 #: templates/qcinfo.html:65
 msgid "Information:"
-msgstr ""
+msgstr "Informations:"
 
 #: templates/qcinfo.html:70
 msgid "Appointment reservation:"
-msgstr ""
+msgstr "Prendre un rendez-vous:"
 
 #: templates/qcinfo.html:75
 msgid "Health booklet:"
-msgstr ""
+msgstr "Carnet de santé:"
 
 #: templates/searchCriteria.html:9
 msgid "Search"
-msgstr ""
+msgstr "Chercher"
 
 #: templates/searchResults.html:4
 msgid "Search results"
-msgstr ""
+msgstr "Résultats"
 
 #: templates/signupForm.html:35 templates/signupForm.html:63
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #: templates/triage.html:9
 msgid "Sign In"
-msgstr ""
+msgstr "Connexion"
 
 #: templates/triage.html:12
 msgid "I am seeking Care"
-msgstr ""
+msgstr "Je fournis des soins"
 
 #: templates/triage.html:15
 msgid "I am providing Care"
-msgstr ""
+msgstr "Je cherche des soins"
 
 #: templates/whatkindinfo.html:23
 msgid "What kind of information are you seeking"
-msgstr ""
+msgstr "Quelles informations cherchez-vous?"
