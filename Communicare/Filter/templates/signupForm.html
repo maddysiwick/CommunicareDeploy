@@ -35,7 +35,19 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
             
             {{form.media}}
             <button type="submit"> Next </button>
+
+           
     </form>
+    <script>
+        $(document).ready(function() {
+            // Initialize Select2 for your language select box
+            $('.language-select2').select2({
+                placeholder: "Select Languages", // Customize the placeholder
+                width: '100%'  // Optional: to ensure full-width input
+            });
+        });
+    </script>
+    
 </div>
 </div>
 {% endblock %}
