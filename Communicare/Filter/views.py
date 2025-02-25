@@ -80,6 +80,8 @@ class searchCriteria(FormView):
         print(female)
         print(male)
         return redirect('searchresults',distance,specialty,female,male)
+    def form_invalid(self, form):
+        return redirect('home')
 
 #i removed an if request.method==post from this, should maybe check if that needs to be added back
 class searchResults(View):
