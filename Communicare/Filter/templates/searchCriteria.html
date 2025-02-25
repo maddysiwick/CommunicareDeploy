@@ -18,8 +18,9 @@
             <label for="{{ form.password.id_for_label }}" class="label-red">{{ form.password.label }}</label>
             {{ form.Specialty }}
         </div>
-        
-        <button type="submit">{% trans "Search" %}</button>
+        <a href="{% url 'docInfo' %}">
+            <button type="submit">{% trans "Search" %}</button>
+        </a>
     </div>
        
 </form>
