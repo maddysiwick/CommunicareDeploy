@@ -93,7 +93,7 @@ class searchResults(View):
         accessibility=me.acessibility
         asylum=me.asylum
         doctors=[]
-        query=Q(is_doctor=True)&Q(location__within=here.buffer(distance))&Q(docprofile__specialty=specialty)
+        query=Q(is_doctor=True)&Q(location__within=here.buffer(float(distance)))&Q(docprofile__specialty=specialty)
         print(me.location)
         if accessibility==True:
             query&=Q(accessibility=True)
