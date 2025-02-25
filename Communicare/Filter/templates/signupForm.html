@@ -21,44 +21,30 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
             <div class= "form-field">
 
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
-<<<<<<< HEAD
                
                 {% if field.name == 'password1' %}
                     {{field|add_class:"password-field"}}
                 {% else %}
-=======
->>>>>>> edf404f (i hate java script)
                     {{ field }}
                 {% endif %}
                 <small>{{ field.help_text }}</small>
             </div>
         {% endfor %}
         {{form.media}}
+        <input type="hidden" id="languagesInput" name="languages">
         <a href="{% url 'home' %}">
             <button type="submit"> Next </button>
         </a>
-<<<<<<< HEAD
     
-    <!--<script>
-        document.querySelectorAll('.language-option').forEach(option => {
-            option.addEventListener('click', function() {
-                // Toggle the "selected" class on the clicked language option
-                this.classList.toggle('selected');
-
-                // Get all selected languages
-                let selectedLanguages = [];
-                document.querySelectorAll('.language-option.selected').forEach(selected => {
-                    selectedLanguages.push(selected.getAttribute('data-language'));
-                });
-
-                // Update the hidden input field with selected languages
-                document.getElementById('languagesInput').value = selectedLanguages.join(',');
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('.language-select2').select2({
+                placeholder: 'Select Languages',
+                allowClear: true
             });
         });
-    </script>-->
-=======
->>>>>>> edf404f (i hate java script)
-    </form>
+    </script>
 </div>
 </div>
 

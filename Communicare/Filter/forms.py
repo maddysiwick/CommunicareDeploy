@@ -17,7 +17,12 @@ def getCoords(addressBad):
 class PatientSignupForm(UserCreationForm):
     languages=forms.ModelMultipleChoiceField(
         queryset=Language.objects.all(),
-        widget=autocomplete.Select2Multiple(url='language-autocomplete',attrs={'multiple':True})) 
+        widget=autocomplete.Select2Multiple(
+            url='language-autocomplete',
+            attrs={'multiple':True, 'class': 'language-select2'}
+            ),
+            queryset=Language.objecs.all(),
+            required=True) 
         
     
     name=forms.CharField(max_length=100)#help_text='what is your name')
