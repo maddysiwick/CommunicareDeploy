@@ -106,8 +106,8 @@ class SearchCrieteriaForm(forms.Form):
     distance=forms.IntegerField()
     #replace this with a multiple choice field at some point
     specialty=forms.CharField()
-    male=forms.BooleanField(required=False)
-    female=forms.BooleanField(required=False)
+    male=forms.BooleanField(help_text="I would prefer a male doctor",required=False)
+    female=forms.BooleanField(help_text="I would prefer a female doctor",required=False)
     
    
 class loginForm(forms.Form):
