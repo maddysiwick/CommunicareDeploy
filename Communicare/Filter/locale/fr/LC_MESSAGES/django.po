@@ -89,7 +89,7 @@ msgid ""
 msgstr ""
 "Pendant un rendez-vous avec un medecin de famille, il peut vous référer à "
 "un spécialiste. Il vous donnera une référence, un papier avec le numero de "
-téléphone du specialiste, la raison que vous avez besion d'un rendez-vous "
+"téléphone du specialiste, la raison que vous avez besion d'un rendez-vous "
 "et la signature du medecin."
 
 #: templates/booking.html:78
