@@ -18,7 +18,7 @@ overflow-y: auto; height: auto;border-radius: 10px; ">
 
                 <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                     {{ field }}
-                {% endif %}
+                {% empty %}
 
                 <small>{{ field.help_text }}</small>
             </div>
