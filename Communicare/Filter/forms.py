@@ -106,8 +106,8 @@ class SearchCrieteriaForm(forms.Form):
     distance=forms.IntegerField()
     #replace this with a multiple choice field at some point
     specialty=forms.CharField()
-    male=forms.BooleanField(help_text="I would prefer a male healthcare provider",required=False, label=None)
-    female=forms.BooleanField(help_text="I would prefer a female healthcare provider",required=False, label=None)
+    male=forms.BooleanField(help_text="I would prefer a male healthcare provider",required=False,  widget=forms.CheckboxInput(attrs={'aria-label': 'Male'}))
+    female=forms.BooleanField(help_text="I would prefer a female healthcare provider",required=False,  widget=forms.CheckboxInput(attrs={'aria-label': 'Female'}))
     
    
 class loginForm(forms.Form):
