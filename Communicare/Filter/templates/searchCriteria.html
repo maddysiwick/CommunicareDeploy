@@ -11,7 +11,7 @@
         {% csrf_token %}
         {% for field in form %}
         <div class= "form-field">
-            {% if field.name != "male" and field.name != "female" %}
+            {% if field.name == "male" %}
                 <div class="form-field mf-label">
                     <label for="mf-label" class="label-red">Sexe of your healthcare provider</label>
                 </div>
