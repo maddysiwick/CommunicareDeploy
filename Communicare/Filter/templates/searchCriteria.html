@@ -11,13 +11,12 @@
         {% csrf_token %}
         {% for field in form %}
         <div class= "form-field">
-            {% if field.name == "male" %}
+            {% if field.name == "male" or field.name == "female" %}
                 <div class="form-field mf-label">
-                    <label for="mf-label" class="label-red">Sexe of your healthcare provider</label>
+                    <label for="mf-label" class="label-red">Sex of your healthcare provider</label>
                 </div>
-            {% elif field.name == "male" or field.name == "female" %}
-            {{ field }}
-            <small class="help-text">{{ field.help_text }}</small>
+                {{ field }}
+                <small class="help-text">{{ field.help_text }}</small>
             {% else %}
             <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                 {{ field }}
