@@ -11,15 +11,19 @@
         {% csrf_token %}
         {% for field in form %}
         <div class= "form-field">
+            {% if field.name != "male" and field.name != "female" %}
+            <label for="{{ field.id_for_label }}" class="label-red">{{ field.label }}</label>
+            <div class="form-field mf-label">
+                <label for="mf-label" class="label-red">Sexe of your healthcare provider</label>
+            </div>
+        {% endif %}
+        {{ field }}
             <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
-                {{ field }}
-                <small class="help-text">{{ field.help_text }}</small>
+            <small class="help-text">{{ field.help_text }}</small>
         </div>
         {% endfor %}
 
-        <div class="form-field mf-label">
-            <label for="mf-label" class="label-red">Sexe of your healthcare provider</label>
-        </div>
+        
 
         {{form.media}}
        
