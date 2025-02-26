@@ -2,11 +2,17 @@
 {% load i18n %}
 
 {% block breadcrumb %}
-<h1>{% trans 'Search results' %}</h1>
+<h1 style= "font-family: Nunito, sans-serif; color: #710E09; font-size: clamp(5px, 7vw, 40px); margin: 0; text-align: center;">{% trans 'Search results' %}</h1>
 {% endblock %}
 
 {% block content %}
-{% for doctor in doctors %}
-<a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
-{% endfor %}
+<div class="box" style=" background-color: #FFF9F6;height: calc(40vh);border-radius: 10px; padding-bottom: 70px;position: absolute; display: flex; flex-direction: column; top: clamp(180px, 30vw, 300px); left: 50%; transform: translateX(-50%); width: 50%; justify-content:center; align-items: flex-start;overflow-y: auto; padding-left: 20px; padding-top: 100px;">
+<div class="doctor-list">
+    {% for doctor in doctors %}
+    <div class="doctor-box">
+        <a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
+    </div>
+</div>
+    {% endfor %}
+</div>
 {% endblock %}
