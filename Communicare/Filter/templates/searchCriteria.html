@@ -15,11 +15,14 @@
                 <div class="form-field mf-label">
                     <label for="mf-label" class="label-red">Sexe of your healthcare provider</label>
                 </div>
-
-            {% endif %}
+            {% elif field.name == "male" or field.name == "female" %}
+            {{ field }}
+            <small class="help-text">{{ field.help_text }}</small>
+            {% else %}
             <label for = "{{field.id_for_label}}" class = "label-red"> {{field.label}}</label>
                 {{ field }}
                 <small class="help-text">{{ field.help_text }}</small>
+            {% endfor %}
         </div>
         {% endfor %}
 
