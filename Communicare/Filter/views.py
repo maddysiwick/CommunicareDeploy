@@ -11,6 +11,8 @@ from django.views import View
 from .models import Language
 from django import forms
 from dal import autocomplete
+import os
+from django.conf import settings
 
 # Create your views here.
 #these views might be ass go back over them later
@@ -163,7 +165,7 @@ def page(request):
     if request.method=='POST':
         print('hereee')
         Language.objects.all().delete()
-        langs=open('Filter/langs.txt','r')
+        langs=open(os.path.join(settings.BASE_DIR, 'langs.txt','r'))
         for line in langs.readlines():
             line=line.split('\t',1)[1].replace('\n','')#.split('/')
             Language.objects.create(lang=line)
