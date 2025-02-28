@@ -88,12 +88,11 @@ WSGI_APPLICATION = 'Communicare.wsgi.application'
 #this cant be the db that we use need to switch it
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'communicare_temp',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'POST': 5432
+        'ENGINE': 'django.contrib.gis.db.backends.mysql',
+        'NAME': 'Communicare$default',
+        'USER': 'Communicare',
+        'PASSWORD': 'curtistech',
+        'HOST': 'Communicare.pythonanywhere.com',
     }
 }
 
