@@ -168,7 +168,7 @@ msgstr "Pour plus d'information, consultez ce site web"
 
 #: templates/qcinfo.html:61
 msgid "Links to government pages"
-msgstr "Liens aux pages gouvermentales"
+msgstr "Liens vers les pages gouvermentales"
 
 #: templates/qcinfo.html:65
 msgid "Information:"

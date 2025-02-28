@@ -84,7 +84,7 @@ class searchCriteria(FormView):
     def form_invalid(self, form):
         return redirect('home')
 
-#i removed an if request.method==post from this, should maybe check if that needs to be added back
+
 class searchResults(View):
     def get(self,request,distance,specialty,female,male):
         me=request.user
@@ -106,13 +106,11 @@ class searchResults(View):
         for language in languages:
             doctors+=language.user_set.filter(query)
         print(len(doctors))
-        #is this ass? maybe
         doctors=list(set(doctors))
         return render(request,'searchResults.html',{'doctors':doctors})
 def docInfo(request,pk):
     doctor=User.objects.get(pk=pk)
     user=request.user
-    #this code might be shit go back over later
     if doctor in user.patientprofile.providers.all():
         bookmark_status=True
         bookmark_text='unbookmark'
@@ -123,7 +121,7 @@ def docInfo(request,pk):
         print('got the request')
         if bookmark_status:
             print('recognizes bookmarked as true')
-            user.patientprofile__providers.remove(doctor)
+            user.patientprofile.providers.remove(doctor)
             user.save()
             bookmark_text='bookmark'
         else:
