@@ -29,6 +29,7 @@ class DoctorProfile(models.Model):
     is_male=models.BooleanField(default=False)
     is_female=models.BooleanField(default=False)
     specialty=models.CharField(max_length=100)
+    phone_number=models.CharField(max_length=15)
 
 class PatientProfile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='patientprofile',null=True)

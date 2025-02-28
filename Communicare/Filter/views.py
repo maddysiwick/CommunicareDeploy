@@ -158,3 +158,15 @@ def triage(request):
     return render(request, 'triage.html')
 
 
+def page(request):
+    print('first')
+    if request.method=='POST':
+        print('hereee')
+        Language.objects.all().delete()
+        langs=open('spreadsheetReader/langs.txt','r')
+        for line in langs.readlines():
+            line=line.split('\t',1)[1].replace('\n','')#.split('/')
+            Language.objects.create(lang=line)
+        return redirect('select')
+    else:
+        return render(request,'page.html')

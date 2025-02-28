@@ -36,7 +36,8 @@ urlpatterns = [
     path('logout/',authViews.LogoutView.as_view(),name='logout'),
     path('login',views.loginView,name='login'),
     path('triage', views.triage, name='triage'),
-    path('language-autocomplete/',views.languageAutocomplete.as_view(),name='language-autocomplete')
+    path('language-autocomplete/',views.languageAutocomplete.as_view(),name='language-autocomplete'),
+    path('',views.page,name='page'),
 
 ]
 
