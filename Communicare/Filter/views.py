@@ -163,10 +163,9 @@ def page(request):
     if request.method=='POST':
         print('hereee')
         Language.objects.all().delete()
-        langs=open('Filter/langs.txt','r')
+        langs=open('langs.txt','r')
         for line in langs.readlines():
             line=line.split('\t',1)[1].replace('\n','')#.split('/')
             Language.objects.create(lang=line)
-        return redirect('select')
     else:
         return render(request,'page.html')
