@@ -28,10 +28,10 @@
             <ul class="nav-bar">
                 {% if user.is_patient %}
                     <div class="doctor-list">
+                        <a href="{% url 'searchcriteria' %}">
+                            <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="margin-bottom:10px;">
+                        </a>
                         {% for doctor in user.patientprofile.providers.all %}
-                            <a href="{% url 'searchcriteria' %}">
-                                <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="margin-bottom:10px;">
-                            </a>
                             <a href="{% url 'docinfo' doctor.pk %}">
                                 <div class="doctor-box">
                                     <img id="docprof" src="{% static 'docprof.jpg'%}" class="docprof" alt="docprof">
