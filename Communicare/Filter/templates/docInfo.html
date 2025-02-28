@@ -35,15 +35,20 @@
         {% elif doctor.is_male %}
         <img id="man" src="{% static 'man.jpg' %}" class="man" alt="man">
 
+        {% endif %}
+
         {% if doctor.accessibility %}
             <img id="handi" src="{% static 'handi.jpg' %}" class="handi" alt="handi">
         {% else %}
         <img id="nohandi" src="{% static 'nohandi.jpg' %}" class="nohandi" alt="nohandi">
 
+        {% endif %}
+
         {% if doctor.asylum %}
         <p>*This healthcare provider accepts asylum seekers*</p>
         {% else %}
         <p>*This healthcare provider does not accept asylum seekers*</p>
+        {% endif %}
 
         <p></p>
     </div>
@@ -73,4 +78,4 @@
     </form>
     
 </div>
-{% endif %}
+{% endblock %}
