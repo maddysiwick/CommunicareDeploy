@@ -19,11 +19,11 @@ msgstr ""
 
 #: templates/booking.html:24 templates/whatkindinfo.html:29
 msgid "Booking an appointment"
-msgstr ""
+msgstr "预约"
 
 #: templates/booking.html:28
 msgid "How to book an appointment"
-msgstr ""
+msgstr "如何预约"
 
 #: templates/booking.html:32
 msgid ""
@@ -31,6 +31,8 @@ msgid ""
 "use the phone number provided on our doctor information page. Once you dial, "
 "you can make an appointment by speaking with the receptionist of the office."
 msgstr ""
+"当您通过电话预约医生时，我们建议您使用我们医生信息页面提供的电话号码。拨打后，您可以
+"通过与接待员交谈来预约。"
 
 #: templates/booking.html:33
 msgid ""
@@ -38,31 +40,33 @@ msgid ""
 "doctor you are trying to get an appointment with and the dates you would "
 "like to come into the office."
 msgstr ""
+"如果您选择通过电子邮件联系办公室，请提供您的姓名、电话号码、您希望预约的医生以及您希望到 "
+"办公室的日期。"
 
 #: templates/booking.html:41
 msgid "Calling a doctor"
-msgstr ""
+msgstr "拨打医生电话"
 
 #: templates/booking.html:45
 msgid ""
 "Start by asking the receptionist if they speak the language you are most "
 "comfortable with. The doctor speaks your language, but the receptionist "
 "might not."
-msgstr ""
+msgstr "首先，询问前台接待员是否会说您最熟悉的语言。医生会讲您的语言，但接待员可能不会。"
 
 #: templates/booking.html:48 templates/booking.html:54
 #: templates/booking.html:60 templates/booking.html:66
 msgid "Or"
-msgstr ""
+msgstr "或者"
 
 #: templates/booking.html:51
 msgid "If they don’t speak your language, here is what you should say:"
-msgstr ""
+msgstr "如果他们不会说您的语言，您可以说以下内容："
 
 #: templates/booking.html:57
 msgid ""
 "Introduce yourself and state which doctor you would like an appointment with."
-msgstr ""
+msgstr "自我介绍并说明您希望预约哪位医生。"
 
 #: templates/booking.html:63
 msgid ""
@@ -70,6 +74,8 @@ msgid ""
 "you questions relating to the reasons you wish for an appointment that you "
 "do not wish to answer, here is what you should say:"
 msgstr ""
+"前台接待员将引导您完成剩下的流程。如果他们问您有关预约原因的问题，而您不想回答，您可以 "
+"说以下内容："
 
 #: templates/booking.html:77
 msgid ""
@@ -78,12 +84,14 @@ msgid ""
 "provide the specialist’s phone number, the reason you need to go to that "
 "specialist and the doctor’s signature."
 msgstr ""
+"当您与家庭医生预约时，他们会为您提供转诊给专家。转诊单是一张小纸条，提供专家的电话号码、"
+"您需要去看专家的原因以及医生的签名。"
 
 #: templates/booking.html:78
 msgid ""
 "Coming soon: list of specialists that require referral and list of "
 "specialists that don’t require referrals"
-msgstr ""
+msgstr "即将推出：需要转诊的专家列表和不需要转诊的专家列表"
 
 #: templates/home.html:6 templates/triage.html:4
 msgid "Welcome to CommuniCare"
