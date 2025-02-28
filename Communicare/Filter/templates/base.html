@@ -163,6 +163,36 @@
         .name-image-group {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .name-image-group img {
+            margin-right: 10px;
+        }
+
+        .name-image-group h1 {
+            margin: 0;
+            padding: 5px;
+            font-family: 'Nunito', sans-serif;
+            font-size: clamp(0.5rem, 5vw, 2.5rem);
+            color: #710e09;
+            word-wrap: break-word;
+            max-width: 100%;
+
+        }
+
+        @media (max-width: 600px) {
+            .name-image-group {
+                justify-content: center;  /* Center the content on small screens */
+            }
+
+            .name-image-group img {
+                margin-right: 0;  /* No space between the image and name when they are stacked */
+            }
+
+            .name-image-group h1 {
+                text-align: center;  /* Center the name text when it moves below the image */
+            }
         }
 
         /*.grid {
