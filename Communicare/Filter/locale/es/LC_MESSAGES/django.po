@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: templates/booking.html:24 templates/whatkindinfo.html:29
 msgid "Booking an appointment"
-msgstr ""
+msgstr "Reservar una cita"
 
 #: templates/booking.html:28
 msgid "How to book an appointment"
-msgstr ""
+msgstr "Cómo reservar una cita"
 
 #: templates/booking.html:32
 msgid ""
@@ -31,6 +31,10 @@ msgid ""
 "use the phone number provided on our doctor information page. Once you dial, "
 "you can make an appointment by speaking with the receptionist of the office."
 msgstr ""
+"Cuando reserve una cita con un médico por teléfono, le recomendamos que use "
+"el número de teléfono proporcionado en nuestra página de información del "
+"médico. Una vez que marque, podrá hacer la cita hablando con la recepcionista "
+"de la oficina."
 
 #: templates/booking.html:33
 msgid ""
@@ -38,10 +42,13 @@ msgid ""
 "doctor you are trying to get an appointment with and the dates you would "
 "like to come into the office."
 msgstr ""
+"Si elige enviar un correo electrónico a la oficina, proporcione su nombre, "
+"su número de teléfono, el médico con el que está tratando de hacer una cita y "
+"las fechas en las que le gustaría venir a la oficina."
 
 #: templates/booking.html:41
 msgid "Calling a doctor"
-msgstr ""
+msgstr "Llamando a un médico"
 
 #: templates/booking.html:45
 msgid ""
@@ -49,20 +56,23 @@ msgid ""
 "comfortable with. The doctor speaks your language, but the receptionist "
 "might not."
 msgstr ""
+"Comience preguntando a la recepcionista si habla el idioma con el que "
+"se siente más cómodo. El médico habla su idioma, pero la recepcionista "
+"no necesariamente."
 
 #: templates/booking.html:48 templates/booking.html:54
 #: templates/booking.html:60 templates/booking.html:66
 msgid "Or"
-msgstr ""
+msgstr "O"
 
 #: templates/booking.html:51
 msgid "If they don’t speak your language, here is what you should say:"
-msgstr ""
+msgstr "Si no hablan su idioma, esto es lo que debe decir:"
 
 #: templates/booking.html:57
 msgid ""
 "Introduce yourself and state which doctor you would like an appointment with."
-msgstr ""
+msgstr "Preséntese e indique con qué médico le gustaría tener una cita."
 
 #: templates/booking.html:63
 msgid ""
@@ -70,6 +80,9 @@ msgid ""
 "you questions relating to the reasons you wish for an appointment that you "
 "do not wish to answer, here is what you should say:"
 msgstr ""
+"La recepcionista lo guiará a través del resto del proceso. Si le hacen "
+"preguntas sobre las razones de su cita que no desea responder, esto es lo "
+"que debe decir:"
 
 #: templates/booking.html:77
 msgid ""
@@ -78,12 +91,18 @@ msgid ""
 "provide the specialist’s phone number, the reason you need to go to that "
 "specialist and the doctor’s signature."
 msgstr ""
+"Cuando haga una cita con un médico de familia, le proporcionarán derivaciones "
+"a un especialista. Las derivaciones son pequeños papeles que proporcionan el "
+"número de teléfono del especialista, la razón por la que necesita ir a ese "
+"especialista y la firma del médico."
 
 #: templates/booking.html:78
 msgid ""
 "Coming soon: list of specialists that require referral and list of "
 "specialists that don’t require referrals"
 msgstr ""
+"Próximamente: lista de especialistas que requieren derivación y "
+"lista de especialistas que no requieren derivación"
 
 #: templates/home.html:6 templates/triage.html:4
 msgid "Welcome to CommuniCare"
