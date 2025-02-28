@@ -26,29 +26,31 @@
 <div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;color: #710E09;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); display: flex; flex-direction: column;">
     <div class="name-image-container" style="display: flex; align-items: flex-start; margin-bottom: 10px;">
         <img id="docprof1" src="{% static 'docproflight.jpg'%}" class="docprof1" alt="docprof1">
-        <h1 style="padding: 5px;font-family: 'Nunito', sans-serif;font-size: 2rem;color: #710e09;word-wrap: break-word;max-width: 100%; margin-left: 10px; align-self: left;">{{doctor.name}}</h1>
-        <p style="font-size: 1rem; margin-left: 10px">{{doctor.docprofile.specialty}}</p> 
+        <div style="flex-direction: column;">
+            <h1 style="padding: 5px;font-family: 'Nunito', sans-serif;font-size: 2rem;color: #710e09;word-wrap: break-word;max-width: 100%; margin-left: 10px; align-self: left;">{{doctor.name}}</h1>
+            <p style="font-size: 1rem; margin-left: 10px">{{doctor.docprofile.specialty}}</p> 
+        </div>
     </div>
     <div class="variaim">
-        {% if doctor.docprofile.is_female %}
+        <div style="flex-direction: column;">
+            {% if doctor.docprofile.is_female %}
             <img id="woman" src="{% static 'woman.jpg' %}" class="woman" alt="woman">
-        {% elif doctor.docprofile.is_male %}
-        <img id="man" src="{% static 'man.jpg' %}" class="man" alt="man">
-        {% endif %}
+            {% elif doctor.docprofile.is_male %}
+            <img id="man" src="{% static 'man.jpg' %}" class="man" alt="man">
+            {% endif %}
 
-        {% if doctor.acessibility %}
-            <img id="handi" src="{% static 'handi.jpg' %}" class="handi" alt="handi">
-        {% else %}
-        <img id="nohandi" src="{% static 'nohandi.jpg' %}" class="nohandi" alt="nohandi">
-        {% endif %}
-
+            {% if doctor.acessibility %}
+                <img id="handi" src="{% static 'handi.jpg' %}" class="handi" alt="handi">
+            {% else %}
+            <img id="nohandi" src="{% static 'nohandi.jpg' %}" class="nohandi" alt="nohandi">
+            {% endif %}
+        </div>
+        
         {% if doctor.asylum %}
         <p>*This healthcare provider accepts asylum seekers*</p>
         {% else %}
         <p>*This healthcare provider does not accept asylum seekers*</p>
         {% endif %}
-
-        <p></p>
     </div>
 
     
