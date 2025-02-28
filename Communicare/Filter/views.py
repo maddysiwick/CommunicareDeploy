@@ -163,7 +163,7 @@ def page(request):
     if request.method=='POST':
         print('hereee')
         Language.objects.all().delete()
-        langs=open('langs.txt','r')
+        langs=open('Filter/langs.txt','r')
         for line in langs.readlines():
             line=line.split('\t',1)[1].replace('\n','')#.split('/')
             Language.objects.create(lang=line)
