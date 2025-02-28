@@ -26,7 +26,7 @@
 <div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;color: #710E09;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); display: flex; flex-direction: column;">
     <img id="docprof1" src="{% static 'docproflight.jpg'%}" class="docprof1" alt="docprof1">
     <div style="flex-grow: 1;">
-        <h1 style="font-family: Nunito, sans-serif; font-size: clamp(0.5rem, 5vw, 3rem) ; color: #710e09; padding: 5px; margin-left: 5px; margin-right: 5px; word-wrap: break-word; max-width: 100%; ">{{doctor.name}}</h1>
+        <h1 style="font-family: Nunito, sans-serif; font-size: clamp(0.5rem, 5vw, 2.5rem) ; color: #710e09; padding: 5px; margin-left: 5px; margin-right: 5px; word-wrap: break-word; max-width: 100%; overflow-wrap: break-word ">{{doctor.name}}</h1>
         <p1>{{doctor.docprofile.specialty}}</p1>
         <br>
         {% for language in doctor.languages.all %}
