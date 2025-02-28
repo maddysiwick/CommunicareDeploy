@@ -37,8 +37,6 @@ urlpatterns = [
     path('login',views.loginView,name='login'),
     path('triage', views.triage, name='triage'),
     path('language-autocomplete/',views.languageAutocomplete.as_view(),name='language-autocomplete'),
-    path('',views.page,name='page'),
-
 ]
 
 if settings.DEBUG:
