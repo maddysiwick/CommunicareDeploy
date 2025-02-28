@@ -243,14 +243,25 @@
         .docprof1 {
             width: clamp(75px, 20vw, 200px);
             height: auto;
-            top: 10px;
-            left: 10px;
             object-fit: cover;
-            margin: 20px;
+            margin-right: 20px;
         } 
+
+        @media (max-width: 600px) {
+            .name-image-container {
+                flex-direction: column; /* Change the direction to column when the screen is smaller */
+                align-items: flex-start; /* Align text to the left */
+            }
+
+            .docprof1 {
+                margin-bottom: 10px; /* Add some space between the image and the text */
+            }
+        }
         
-        .image-name-group {
-            flex-direction: row;
+        .name-image-container {
+            display: flex;
+            align-items: left;
+            margin-bottom: 10px;
         }
 
         .tester {
