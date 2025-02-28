@@ -30,7 +30,7 @@
                     <div class="doctor-list">
                         {% for doctor in user.patientprofile.providers.all %}
                             <a href="{% url 'searchcriteria' %}">
-                                <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="position: absolute; left: 20px; top: 20px;">
+                                <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="margin-bottom:10px;">
                             </a>
                             <a href="{% url 'docinfo' doctor.pk %}">
                                 <div class="doctor-box">
