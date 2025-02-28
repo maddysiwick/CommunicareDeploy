@@ -110,12 +110,12 @@
             
         }
 
-        /*.doctor-list {
-            display: grid;
-            grid-template-columns: clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px);
+        .doctor-list {
+            display: flex;
             gap: 10px;
-            width: 100%
-        } */
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
 
         .doctor-box {
             background-color: #F3EAE5;
@@ -159,7 +159,7 @@
             align-items: center;
         }
 
-        .grid {
+        /*.grid {
             outline: none;
             display: grid;
             width: 100%;
@@ -167,7 +167,7 @@
             align-items: start;
             grid-gap: 15px;
             justify-items: center;
-        } 
+        } */
 
         .red-line {
             border-bottom: 2px solid #710E09;
