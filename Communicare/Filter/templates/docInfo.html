@@ -30,15 +30,15 @@
     </div>
     <div class="otherinfo">
         <h1 style="font-weight: bold; font-size: 1.5rem">Field: {{doctor.docprofile.specialty}}</h1>
-        {% for language in doctor.languages.all %}
-        <h1 style="font-weight: bold; font-size: 1.5rem">Languages Spoken: {{language.lang|join:", "}}</h1>
+        <h1 style="font-weight: bold; font-size: 1.5rem">Languages Spoken: 
+            {% for language in doctor.languages.all %}
+                {{language.lang}} {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </h1>
     </div>
     <div class="contactinfo">
         <h1 style="font-weight: bold; font-size: 1.5rem">Contact information: </h1>
-
     </div>
-    
-    <br>
    
     {% endfor %}
     {% if me.is_patient %}
