@@ -9,36 +9,43 @@
 
 {% block content %}
 <div class = "container">
-<div class="box" style="top: clamp(180px, 30vw, 300px);left:0; bottom: 0; padding: 20px;width: 100px; position: absolute; border-right: 2px solid #710E09; background-color: #F3EAE5; ">
-    <a href="{% url 'whatkindinfo' %}">
-        <img id="info" src="{% static 'info.jpg'%}"class ="info" alt="info">
-    </a>
-    <img id="profile" src="{% static 'profile.jpg'%}"class ="profile" alt="profile">
-    <a href="{% url 'home' %}">
-        <img id="homebutton" src="{% static 'homebutton.jpg'%}"class ="homebutton" alt="homebutton">
-    </a>
-    <a href="{% url 'login' %}">
-        <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
-    </a>
+    <div class="box" style="top: clamp(180px, 30vw, 300px);left:0; bottom: 0; padding: 20px;width: 100px; position: absolute; border-right: 2px solid #710E09; background-color: #F3EAE5; ">
+        <a href="{% url 'whatkindinfo' %}">
+            <img id="info" src="{% static 'info.jpg'%}"class ="info" alt="info">
+        </a>
+        <img id="profile" src="{% static 'profile.jpg'%}"class ="profile" alt="profile">
+        <a href="{% url 'home' %}">
+            <img id="homebutton" src="{% static 'homebutton.jpg'%}"class ="homebutton" alt="homebutton">
+        </a>
+        <a href="{% url 'login' %}">
+            <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
+        </a>
 
-</div>
+    </div>
 
-<div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;font-size: 1rem;color: #F3EAE5;text-align: center;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); position: absolute;">
-    <nav>
-        <ul class="nav-bar">
-            <a href="{% url 'searchcriteria' %}">
-                <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="position: absolute; left: 20px; top: 20px;">
-            </a>
-        </ul>
-   </nav>
+    <div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;font-size: 1rem;color: #F3EAE5;text-align: center;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); position: absolute;">
+        <nav>
+            <ul class="nav-bar">
+                <a href="{% url 'searchcriteria' %}">
+                    <img id="adddoc" src="{% static 'adddoc.jpg'%}"class ="adddoc" alt="adddoc" style="position: absolute; left: 20px; top: 20px;">
+                </a>
+
+                {% if user.is_patient %}
+                    <div class="doctor-list">
+                        {% for doctor in user.patientprofile.providers.all %}
+                            <a href="{% url 'docinfo' doctor.pk %}">
+                                <div class="doctor-box">
+                                    <img id="docprof" src="{% static 'docprof.jpg'%}" class="docprof" alt="docprof">
+                                    <div class="doctor-name">
+                                        Dr. {{ doctor.name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
  </div>
-
-{% if user.is_patient %}
-<br>
-<h2>{% trans "Bookmarked providers" %}</h2>
-{% for doctor in user.patientprofile.providers.all %}
-<a href="{% url 'docinfo' doctor.pk %}">{{doctor.name}}</a>
-{% endfor %}
-{% endif %}
-
 {% endblock %}
