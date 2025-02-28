@@ -112,7 +112,7 @@
 
         .doctor-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+            grid-template-columns: clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px) clamp(75px, 20vw, 150px);
             gap: 10px;
             width: 100%
         }
@@ -159,7 +159,7 @@
             align-items: center;
         }
 
-        .grid {
+        /*.grid {
             outline: none;
             display: grid;
             width: 100%;
@@ -167,7 +167,7 @@
             grid-template-rows: clamp(125px, 20vw, 200px) clamp(125px, 20vw, 200px) clamp(125px, 20vw, 200px) clamp(125px, 20vw, 200px);
             align-items: start;
             justify-content: space-around;
-        }
+        } */
 
         .red-line {
             border-bottom: 2px solid #710E09;
