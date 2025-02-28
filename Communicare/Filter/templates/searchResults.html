@@ -19,7 +19,7 @@
         <a href="{% url 'login' %}">
             <img id="signout" src="{% static 'signout.jpg'%}"class ="signout" alt="signout">
         </a>
-        <img id="docprof" src="{% if doctor.profile_picture %}{{ doctor.profile_picture.url }}{% else %}{% static 'default-profile.jpg' %}{% endif %}" class="docprof" alt="docprof">
+        <img id="docprof" src="{% static 'docprof.jpg'%}" class="docprof" alt="docprof">
     
     </div>
 </div>
