@@ -27,10 +27,29 @@
     <div class="name-image-container" style="display: flex; align-items: left; margin-bottom: 10px;">
         <img id="docprof1" src="{% static 'docproflight.jpg'%}" class="docprof1" alt="docprof1">
         <h1 style="padding: 5px;font-family: 'Nunito', sans-serif;font-size: 2rem;color: #710e09;word-wrap: break-word;max-width: 100%; margin-left: 10px; align-self: left;">{{doctor.name}}</h1>
-    </div>
-    <div class="otherinfo">
-        <h1 style="font-weight: bold; font-size: 1rem">Field: </h1>
         <p style="font-size: 1rem">{{doctor.docprofile.specialty}}</p> 
+    </div>
+    <div class="variaim">
+        {% if doctor.is_female %}
+            <img id="woman" src="{% static 'woman.jpg' %}" class="woman" alt="woman">
+        {% elif doctor.is_male %}
+        <img id="man" src="{% static 'man.jpg' %}" class="man" alt="man">
+
+        {% if doctor.accessibility %}
+            <img id="handi" src="{% static 'handi.jpg' %}" class="handi" alt="handi">
+        {% else %}
+        <img id="nohandi" src="{% static 'nohandi.jpg' %}" class="nohandi" alt="nohandi">
+
+        {% if doctor.asylum %}
+        <p>*This healthcare provider accepts asylum seekers*</p>
+        {% else %}
+        <p>*This healthcare provider does not accept asylum seekers*</p>
+
+        <p></p>
+    </div>
+
+    
+    <div class="otherinfo">
         <h1 style="font-weight: bold; font-size: 1.5rem">Languages Spoken: </h1> 
         <p>
             {% for language in doctor.languages.all %}
@@ -42,8 +61,8 @@
         <h1 style="font-weight: bold; font-size: 1.5rem">Contact information: </h1>
         <p>
             Phone: {{doctor.docprofile.phone_number}} <br>
-            Email: {{doctor.doctor.email_address}} <br>
-            Address: {{doctor.doctor.address}} <br>
+            Email: {{doctor.email_address}} <br>
+            Address: {{doctor.address}} <br>
         </p>
     </div>
    
