@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'Communicare$default',
         'USER': 'Communicare',
         'PASSWORD': 'curtistech',
-        'HOST': 'Communicare.pythonanywhere.com',
+        'HOST': 'Communicare.mysql.pythonanywhere-services.com',
     }
 }
 
