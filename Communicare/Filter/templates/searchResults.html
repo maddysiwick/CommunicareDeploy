@@ -24,17 +24,18 @@
 </div>
 
 <div class="box" style="padding: 20px;font-family: 'Nunito', sans-serif;font-size: 1rem;color: #F3EAE5;border-radius: 15px;background-color: #FFF9F6;max-height: 500px;overflow-y: auto;position: fixed;bottom: 30px;left: 190px;right: 40px; top: clamp(200px, 32vw, 325px); position: absolute;">
-<div class="doctor-list">
-    {% for doctor in doctors %}
-    <a href="{% url 'docinfo' doctor.pk %}">
-        <div class="doctor-box">
-            <img id="docprof" src="{% static 'docprof.jpg'%}"class ="docprof" alt="docprof">
-            <div class="doctor-name">
-                {{doctor.name}}
+    <div class="doctor-list">
+        {% for doctor in doctors %}
+        <a href="{% url 'docinfo' doctor.pk %}">
+            <div class="doctor-box">
+                <img id="docprof" src="{% if doctor.profile_picture %}{{ doctor.profile_picture.url }}{% else %}{% static 'default-profile.jpg' %}{% endif %}" class="docprof" alt="docprof">
+                <div class="doctor-name">
+                    {{ doctor.name }}
+            
+                </div>
             </div>
-        </div>
-    </a>
-</div>
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
