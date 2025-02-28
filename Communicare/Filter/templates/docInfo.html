@@ -29,15 +29,22 @@
         <h1 style="padding: 5px;font-family: 'Nunito', sans-serif;font-size: 2rem;color: #710e09;word-wrap: break-word;max-width: 100%; margin-left: 10px; align-self: left;">{{doctor.name}}</h1>
     </div>
     <div class="otherinfo">
-        <h1 style="font-weight: bold; font-size: 1.5rem">Field: {{doctor.docprofile.specialty}}</h1>
-        <h1 style="font-weight: bold; font-size: 1.5rem">Languages Spoken: 
+        <h1 style="font-weight: bold; font-size: 1rem">Field: </h1>
+        <p style="font-size: 1rem">{{doctor.docprofile.specialty}}</p> 
+        <h1 style="font-weight: bold; font-size: 1.5rem">Languages Spoken: </h1> 
+        <p>
             {% for language in doctor.languages.all %}
-                {{language.lang}} {% if not forloop.last %}, {% endif %}
+            {{language.lang}} {% if not forloop.last %}, {% endif %}
             {% endfor %}
-        </h1>
+        </p>
     </div>
     <div class="contactinfo">
         <h1 style="font-weight: bold; font-size: 1.5rem">Contact information: </h1>
+        <p>
+            Phone: {{doctor.docprofile.phone}} <br>
+            Email: {{doctor.docprofile.email}} <br>
+            Address: {{doctor.docprofile.address}} <br>
+        </p>
     </div>
    
     {% if me.is_patient %}
