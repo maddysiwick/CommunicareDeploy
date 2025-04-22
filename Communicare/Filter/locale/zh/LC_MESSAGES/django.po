@@ -31,7 +31,7 @@ msgid ""
 "use the phone number provided on our doctor information page. Once you dial, "
 "you can make an appointment by speaking with the receptionist of the office."
 msgstr ""
-"当您通过电话预约医生时，我们建议您使用我们医生信息页面提供的电话号码。拨打后，您可以
+"当您通过电话预约医生时，我们建议您使用我们医生信息页面提供的电话号码。拨打后，您可以"
 "通过与接待员交谈来预约。"
 
 #: templates/booking.html:33
