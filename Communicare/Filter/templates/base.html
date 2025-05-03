@@ -584,22 +584,17 @@
         <img id="langButton" src="{% static 'langbutton.jpg'%}"class ="langbutton" alt="langbutton">
     </div>
 
-   <div class="dropdown" id="dropdownMenu">
-        <ul class="nav-bar">
-            <li><a href="#">English</a></li>
-            <li><a href="#">French</a></li>
-            <li><a href="#">Chinese</a></li>
-            <li><a href="#">Spanish</a></li>
-            <li><a href="#">Russian</a></li>
-            <li><a href="#">Arabic</a></li>
-            <li><a href="#">Portuguese</a></li>
-            <li><a href="#">Ukrainian</a></li>
-            <li><a href="#">Japanese</a></li>
-            <li><a href="#">Korean</a></li>
-            <li><a href="#">Italian</a></li>
-        </ul>
-    </div>
-
+   <form method="post" action="{url % 'set_language' %}">
+    {% csrf_token %}
+        <label for="language-select">Choose your language:</label>
+        <select id="language-select" name="language">
+          <option value="en">English</option>
+          <option value="fr">Francais</option>
+          <option value="es">Spanish</option>
+          <option value="zh">Chinese</option>
+        </select>
+        <button type="submit">Switch</button>
+   </form>
 
     <div class = "red-line"> </div>
     <div>
