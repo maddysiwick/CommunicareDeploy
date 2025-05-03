@@ -38,7 +38,7 @@ urlpatterns = [
     path('login',views.loginView,name='login'),
     path('triage', views.triage, name='triage'),
     path('language-autocomplete/',views.languageAutocomplete.as_view(),name='language-autocomplete'),
-    path('i18n/', include('django.conf.urls.i18n')),
+    path('i18n/', include('django.conf.urls.i18n'),name='set_language'),
 ]
 
 if settings.DEBUG:
