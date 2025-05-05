@@ -584,16 +584,21 @@
         <img id="langButton" src="{% static 'langbutton.jpg'%}"class ="langbutton" alt="langbutton">
     </div>
 
-   <form method="post" action="{url % 'set_language' %}">
-        <label for="language-select">Choose your language:</label>
-        <select id="language-select" name="language">
-          <option value="en">English</option>
-          <option value="fr">Francais</option>
-          <option value="es">Spanish</option>
-          <option value="zh">Chinese</option>
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ home }}">
+        <select name="language">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                    {{ language.name_local }} ({{ language.code }})
+                </option>
+            {% endfor %}
         </select>
-        <button type="submit">Switch</button>
-   </form>
+        <input type="submit" value="Go">
+    </form>
 
     <div class = "red-line"> </div>
     <div>

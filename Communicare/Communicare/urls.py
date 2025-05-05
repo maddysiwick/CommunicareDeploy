@@ -23,6 +23,7 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
     path('signup/',views.triage,name='signup'),
     path('signup/doctor/',views.DocSignupView.as_view(),name='docSignup'),
@@ -38,7 +39,6 @@ urlpatterns = [
     path('login',views.loginView,name='login'),
     path('triage', views.triage, name='triage'),
     path('language-autocomplete/',views.languageAutocomplete.as_view(),name='language-autocomplete'),
-    path('i18n/', include('django.conf.urls.i18n'),name='set_language'),
 ]
 
 if settings.DEBUG:
