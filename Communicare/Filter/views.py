@@ -61,7 +61,6 @@ class PatientSignupView(CreateView):
         return redirect('home')
     
 def home(request):
-    print('print does work so like wtf')
     return render(request,'home.html')
 
 def triage(request):
@@ -158,4 +157,3 @@ def booking(request):
 
 def triage(request):
     return render(request, 'triage.html')
-

@@ -585,7 +585,6 @@
     </div>
 
    <form method="post" action="{url % 'set_language' %}">
-    {% csrf_token %}
         <label for="language-select">Choose your language:</label>
         <select id="language-select" name="language">
           <option value="en">English</option>
