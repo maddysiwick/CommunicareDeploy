@@ -43,7 +43,7 @@ msgid ""
 msgstr "Si vous choisissez de contacter le clinique, indiquez votre nom, votre numero de téléphone, le medecin avec lequel vous voulez prendre un rendez-vous et vos disponibilités pour le rendez-vous."
 
 #: templates/booking.html:41
-msgid "Calling a doctor"
+msgid "Calling a doctor's office"
 msgstr "Appeler un medecin"
 
 #: templates/booking.html:45

@@ -47,7 +47,7 @@ msgstr ""
 "las fechas en las que le gustaría venir a la oficina."
 
 #: templates/booking.html:41
-msgid "Calling a doctor"
+msgid "Calling a doctor's office"
 msgstr "Llamando a un médico"
 
 #: templates/booking.html:45

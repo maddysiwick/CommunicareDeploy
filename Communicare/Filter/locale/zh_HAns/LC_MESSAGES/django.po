@@ -44,7 +44,7 @@ msgstr ""
 "办公室的日期。"
 
 #: templates/booking.html:41
-msgid "Calling a doctor"
+msgid "Calling a doctor's office"
 msgstr "拨打医生电话"
 
 #: templates/booking.html:45
