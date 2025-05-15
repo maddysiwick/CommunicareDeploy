@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-24 21:24-0500\n"
+"POT-Creation-Date: 2025-05-14 22:18-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,61 +17,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: templates/booking.html:24 templates/whatkindinfo.html:29
+
+#: .\Filter\templates\booking.html:24 .\Filter\templates\whatkindinfo.html:30
 msgid "Booking an appointment"
 msgstr ""
 
-#: templates/booking.html:28
+#: .\Filter\templates\booking.html:29
 msgid "How to book an appointment"
 msgstr ""
 
-#: templates/booking.html:32
+#: .\Filter\templates\booking.html:33
 msgid ""
 "When booking an appointment with a doctor over the phone, we recommend you "
 "use the phone number provided on our doctor information page. Once you dial, "
 "you can make an appointment by speaking with the receptionist of the office."
 msgstr ""
 
-#: templates/booking.html:33
+#: .\Filter\templates\booking.html:34
 msgid ""
 "If you choose to email the office, provide your name, your phone number, the "
 "doctor you are trying to get an appointment with and the dates you would "
 "like to come into the office."
 msgstr ""
 
-#: templates/booking.html:41
+#: .\Filter\templates\booking.html:42
 msgid "Calling a doctor"
 msgstr ""
 
-#: templates/booking.html:45
+#: .\Filter\templates\booking.html:46
 msgid ""
 "Start by asking the receptionist if they speak the language you are most "
 "comfortable with. The doctor speaks your language, but the receptionist "
 "might not."
 msgstr ""
 
-#: templates/booking.html:48 templates/booking.html:54
-#: templates/booking.html:60 templates/booking.html:66
+#: .\Filter\templates\booking.html:49 .\Filter\templates\booking.html:55
+#: .\Filter\templates\booking.html:61 .\Filter\templates\booking.html:67
 msgid "Or"
 msgstr ""
 
-#: templates/booking.html:51
+#: .\Filter\templates\booking.html:52
 msgid "If they don’t speak your language, here is what you should say:"
 msgstr ""
 
-#: templates/booking.html:57
+#: .\Filter\templates\booking.html:58
 msgid ""
 "Introduce yourself and state which doctor you would like an appointment with."
 msgstr ""
 
-#: templates/booking.html:63
+#: .\Filter\templates\booking.html:64
 msgid ""
 "The receptionist will guide you through the rest of the process. If they ask "
 "you questions relating to the reasons you wish for an appointment that you "
 "do not wish to answer, here is what you should say:"
 msgstr ""
 
-#: templates/booking.html:77
+#: .\Filter\templates\booking.html:78
 msgid ""
 "When you make an appointment with a family doctor, they will provide you "
 "with referrals to a specialist. Referrals are small pieces of paper that "
@@ -79,41 +80,37 @@ msgid ""
 "specialist and the doctor’s signature."
 msgstr ""
 
-#: templates/booking.html:78
+#: .\Filter\templates\booking.html:79
 msgid ""
 "Coming soon: list of specialists that require referral and list of "
 "specialists that don’t require referrals"
 msgstr ""
 
-#: templates/home.html:6 templates/triage.html:4
+#: .\Filter\templates\home.html:7 .\Filter\templates\triage.html:5
 msgid "Welcome to CommuniCare"
 msgstr ""
 
-#: templates/home.html:35
-msgid "Bookmarked providers"
-msgstr ""
-
-#: templates/login.html:26
+#: .\Filter\templates\login.html:27
 msgid "Login"
 msgstr ""
 
-#: templates/login.html:28
+#: .\Filter\templates\login.html:29
 msgid "Create an account"
 msgstr ""
 
-#: templates/qcinfo.html:27
+#: .\Filter\templates\qcinfo.html:28
 msgid "Payment for asylum seekers"
 msgstr ""
 
-#: templates/qcinfo.html:31
+#: .\Filter\templates\qcinfo.html:32
 msgid "Coming Soon!"
 msgstr ""
 
-#: templates/qcinfo.html:36
+#: .\Filter\templates\qcinfo.html:37
 msgid "Private versus Public"
 msgstr ""
 
-#: templates/qcinfo.html:40
+#: .\Filter\templates\qcinfo.html:41
 msgid ""
 "Private healthcare refers to any health insurance policy purchased by a "
 "person or an employer from a private insurance company. If you do not have a "
@@ -121,71 +118,72 @@ msgid ""
 "for the services yourself."
 msgstr ""
 
-#: templates/qcinfo.html:41
+#: .\Filter\templates\qcinfo.html:42
 msgid ""
 "Public health care refers to services assured by the government; they are "
 "thus free if you have a valid Health Insurance Card issued by the government."
 msgstr ""
 
-#: templates/qcinfo.html:42
+#: .\Filter\templates\qcinfo.html:43
 msgid ""
 "To know more about what services are covered by a Health Insurance Card "
 "issued by the government, visit this website:"
 msgstr ""
 
-#: templates/qcinfo.html:44 templates/qcinfo.html:49 templates/qcinfo.html:54
-#: templates/qcinfo.html:67 templates/qcinfo.html:72 templates/qcinfo.html:77
+#: .\Filter\templates\qcinfo.html:45 .\Filter\templates\qcinfo.html:50
+#: .\Filter\templates\qcinfo.html:55 .\Filter\templates\qcinfo.html:68
+#: .\Filter\templates\qcinfo.html:73 .\Filter\templates\qcinfo.html:78
 msgid "Click here"
 msgstr ""
 
-#: templates/qcinfo.html:47
+#: .\Filter\templates\qcinfo.html:48
 msgid "To sign up for a Health Insurance card, visit this website:"
 msgstr ""
 
-#: templates/qcinfo.html:52
+#: .\Filter\templates\qcinfo.html:53
 msgid "For more information, visite this website:"
 msgstr ""
 
-#: templates/qcinfo.html:61
+#: .\Filter\templates\qcinfo.html:62
 msgid "Links to government pages"
 msgstr ""
 
-#: templates/qcinfo.html:65
+#: .\Filter\templates\qcinfo.html:66
 msgid "Information:"
 msgstr ""
 
-#: templates/qcinfo.html:70
+#: .\Filter\templates\qcinfo.html:71
 msgid "Appointment reservation:"
 msgstr ""
 
-#: templates/qcinfo.html:75
+#: .\Filter\templates\qcinfo.html:76
 msgid "Health booklet:"
 msgstr ""
 
-#: templates/searchCriteria.html:9
+#: .\Filter\templates\searchCriteria.html:62
 msgid "Search"
 msgstr ""
 
-#: templates/searchResults.html:4
+#: .\Filter\templates\searchResults.html:6
 msgid "Search results"
 msgstr ""
 
-#: templates/signupForm.html:35 templates/signupForm.html:63
-msgid "Next"
-msgstr ""
-
-#: templates/triage.html:9
+#: .\Filter\templates\triage.html:10
 msgid "Sign In"
 msgstr ""
 
-#: templates/triage.html:12
+#: .\Filter\templates\triage.html:13
 msgid "I am seeking Care"
 msgstr ""
 
-#: templates/triage.html:15
+#: .\Filter\templates\triage.html:16
 msgid "I am providing Care"
 msgstr ""
 
-#: templates/whatkindinfo.html:23
+#: .\Filter\templates\whatkindinfo.html:24
 msgid "What kind of information are you seeking"
+msgstr ""
+
+#: .\Filter\templates\whatkindinfo.html:27
+msgid "Quebec's healthcare system"
 msgstr ""

@@ -1,17 +1,17 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
-from django.contrib.gis.geos import Point
-from geopy import Nominatim
+#from django.contrib.gis.geos import Point
+#from geopy import Nominatim
 from dal import autocomplete
 from .models import DoctorProfile,User,Language,PatientProfile
 
-def getCoords(addressBad):
+'''def getCoords(addressBad):
     geolocator=Nominatim(user_agent='Communicare')
     location=geolocator.geocode(addressBad)
     address=location.address
     point=Point(location.longitude,location.latitude)
-    return [address,point]
+    return [address,point]'''
 
 
 class PatientSignupForm(UserCreationForm):
@@ -47,9 +47,10 @@ class PatientSignupForm(UserCreationForm):
         user.is_patient=True
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
-        spacial=getCoords(self.cleaned_data.get('address'))
-        user.address=spacial[0]
-        user.location=spacial[1]
+        #spacial=getCoords(self.cleaned_data.get('address'))
+        #user.address=spacial[0]
+        user.address=self.cleaned_data.get('address')
+        #user.location=spacial[1]
         user.accessibility=self.cleaned_data.get('accessibility')
         user.asylum=self.cleaned_data.get('asylum')
         user.save()
@@ -87,10 +88,11 @@ class DoctorSignupForm(UserCreationForm):
         user.asylum=self.cleaned_data.get('asylum')
         user.save()
         user.languages.add(*self.cleaned_data.get('languages'))
-        spacial=getCoords(self.cleaned_data.get('address'))
-        print(spacial[0])
-        user.address=spacial[0]
-        user.location=spacial[1]
+        #spacial=getCoords(self.cleaned_data.get('address'))
+        #print(spacial[0])
+        #user.address=spacial[0]
+        #user.location=spacial[1]
+        user.address=self.cleaned_data.get('address')
         user.accessibility=self.cleaned_data.get('accessibility')
         doc=DoctorProfile.objects.create()
 
@@ -104,7 +106,7 @@ class DoctorSignupForm(UserCreationForm):
         return user
 
 class SearchCrieteriaForm(forms.Form):
-    distance=forms.IntegerField()
+    #distance=forms.IntegerField()
     #replace this with a multiple choice field at some point
     specialty=forms.CharField()
     male=forms.BooleanField(help_text="I would prefer a male healthcare provider",required=False,  widget=forms.CheckboxInput(attrs={'aria-label': 'Male'}))

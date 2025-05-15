@@ -18,7 +18,6 @@ class UserAdmin(UserAdmin):
                     'is_patient',
                     'name',
                     'acessibility',
-                    'location',
                     'address',
                     'languages',
                 ),

@@ -1,5 +1,5 @@
-from django.contrib.gis.db import models
-from django.contrib.gis.geos import Point
+from django.db import models
+#from django.contrib.gis.geos import Point
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
@@ -17,7 +17,7 @@ class User(AbstractUser):
     name=models.CharField(max_length=100)
     acessibility=models.BooleanField(default=False)
     address=models.CharField(max_length=500,null=True)
-    location=models.PointField(null=True,blank=True)
+    #location=models.PointField(null=True,blank=True)
     languages=models.ManyToManyField(Language)
     asylum=models.BooleanField(default=True)
 

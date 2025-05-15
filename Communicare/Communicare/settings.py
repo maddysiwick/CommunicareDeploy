@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
     'Filter',
     'widget_tweaks'
 ]
@@ -88,11 +87,12 @@ WSGI_APPLICATION = 'Communicare.wsgi.application'
 #this cant be the db that we use need to switch it
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'communicare_temp',
         'USER': 'postgres',
-        'PASSWORD': 'passwork',
-        'HOST': 5432
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT':5432,
     }
 }
 
@@ -125,7 +125,7 @@ LANGUAGES = [
     ('en', 'English'),
     ('fr','Français'),
     ('es','Español'),
-    ('zh','chinese')
+    ('zh-cn','chinese')
 ]
 
 TIME_ZONE = 'UTC'

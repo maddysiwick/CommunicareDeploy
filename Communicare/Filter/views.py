@@ -3,8 +3,8 @@ from django.shortcuts import redirect,render
 from django.views.generic import CreateView
 from .models import User,DoctorProfile
 from .forms import DoctorSignupForm,PatientSignupForm,SearchCrieteriaForm,loginForm
-from django.contrib.gis.measure import Distance
-from django.contrib.gis.geos import Point
+#from django.contrib.gis.measure import Distance
+#from django.contrib.gis.geos import Point
 from django.db.models import Q
 from django.views.generic.edit import FormView
 from django.views import View
@@ -61,7 +61,6 @@ class PatientSignupView(CreateView):
         return redirect('home')
     
 def home(request):
-    print('print does work so like wtf')
     return render(request,'home.html')
 
 def triage(request):
@@ -72,9 +71,8 @@ class searchCriteria(FormView):
     form_class=SearchCrieteriaForm
 
     def form_valid(self,form):
-        print('got here??')
         #MAJOR CHEAT FIX THIS
-        distance=((form.cleaned_data.get('distance'))/40075.017)*360
+        #distance=((form.cleaned_data.get('distance'))/40075.017)*360
         specialty=form.cleaned_data.get('specialty')
         female=form.cleaned_data.get('female')
         male=form.cleaned_data.get('male')
@@ -82,20 +80,21 @@ class searchCriteria(FormView):
         print(specialty)
         print(female)
         print(male)
-        return redirect('searchresults',distance,specialty,female,male)
+        return redirect('searchresults',specialty,female,male)
     def form_invalid(self, form):
         return redirect('home')
 
 
 class searchResults(View):
-    def get(self,request,distance,specialty,female,male):
+    def get(self,request,specialty,female,male):
         me=request.user
-        here=me.location
+        #here=me.location
         languages=me.languages.all()
         accessibility=me.acessibility
         asylum=me.asylum
         doctors=[]
-        query=Q(is_doctor=True)&Q(location__within=here.buffer(float(distance)))&Q(docprofile__specialty=specialty)
+        #&Q(location__within=here.buffer(float(distance)))
+        query=Q(is_doctor=True)&Q(docprofile__specialty=specialty)
         print(me.location)
         if accessibility==True:
             query&=Q(accessibility=True)
