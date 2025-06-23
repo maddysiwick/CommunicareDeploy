@@ -13,6 +13,7 @@ from django import forms
 from dal import autocomplete
 import os
 from django.conf import settings
+from .makelangs import langs
 
 # Create your views here.
 #these views might be ass go back over them later
@@ -61,6 +62,7 @@ class PatientSignupView(CreateView):
         return redirect('home')
     
 def home(request):
+    langs.populate()
     return render(request,'home.html')
 
 def triage(request):

@@ -21,7 +21,7 @@ ar	العربية
 no	Norsk (Bokmål)
 sh	Srpskohrvatski / Српскохрватски
 fi	Suomi
-hu	Magyar
+hu  Magyar
 id	Bahasa Indonesia
 ko	한국어
 cs	Čeština
@@ -85,11 +85,11 @@ mr	मराठी
 sco	Scots
 af	Afrikaans
 ga	Gaeilge
-pnb	شاہ مکھی پنجابی (Shāhmukhī Pañjābī)
+pnb شاہ مکھی پنجابی (Shāhmukhī Pañjābī)
 is	Íslenska
 ba	Башҡорт
 cv	Чăваш
-fy	Frysk
+fy  Frysk
 su	Basa Sunda
 sw	Kiswahili
 my	မြန်မာဘာသာ
