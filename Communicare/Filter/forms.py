@@ -69,7 +69,7 @@ class DoctorSignupForm(UserCreationForm):
     name=forms.CharField(max_length=100)
     accessibility=forms.BooleanField(help_text='My office is accessible to people with physical handicaps',required=False)
     address=forms.CharField(max_length=500)
-    number=forms.CharField(max_length=15)
+    phone=forms.CharField(max_length=15)
     male=forms.BooleanField(help_text='m',required=False)
     female=forms.BooleanField(help_text='f',required=False)
     asylum=forms.BooleanField(required=False)
